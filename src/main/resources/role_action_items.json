@@ -1,0 +1,26 @@
+[
+  {"role": {"value": "mofof"},
+   "actionItems": [
+      {
+        "sysId":"module/path@add",
+        "module": {"sysKey": "fund.list"}
+      },
+      {
+        "sysId":"module/path@edit",
+        "module": {"sysKey": "fund.basic-tab"}
+      },
+      {
+        "sysId":"module/path@edit",
+        "module": {"sysKey": "fund.managementFee"}
+      },
+      {
+        "sysId":"module/path@add",
+        "module": {"sysKey": "fund.affiliates"}
+      },
+      {
+        "sysId":"module/path@edit",
+        "module": {"sysKey": "fund.affiliates"}
+      }
+    ]
+  }
+]

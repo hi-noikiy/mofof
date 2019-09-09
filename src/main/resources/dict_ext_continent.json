@@ -1,0 +1,29 @@
+[
+    {
+        "nameCn": "亚洲",
+        "nameEn": "Asia",       
+        "rank": 1,
+        "dictExtCountries": [
+            { "rank": 1, "nameCn": "中国","nameEn": "China",
+              "dixtDictExtProvinces": [
+                {"shortName":"陕","fullName":"陕西","provinceCode":"1","provinceNo":"1",
+                  "dictExtCities":[
+                    {"shortName":"西安","fullName":"西安","cityCode":"1","cityNo":"1",
+                      "dictExtDistricts":[{"shortName":"高新","fullName":"高新区","districtCode":"1","districtNo":"1"}
+                      ]
+                    }
+                  ]
+                },{"shortName":"浙","fullName":"浙江","provinceCode":"2","provinceNo":"2",
+                  "dictExtCities":[
+                    {"shortName":"杭州","fullName":"杭州","cityCode":"1","cityNo":"1",
+                      "dictExtDistricts":[{"shortName":"滨江","fullName":"滨江区","districtCode":"1","districtNo":"1"}
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }           
+            
+       ]
+    }
+]

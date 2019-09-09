@@ -1,0 +1,865 @@
+// 说明：与dictionary.json文件相比，除增加的字典外，有如下几个字典没有用到：
+// 性别-gender、投资人类型-investorType、银行类型-bankType、银行-bank、开户行-branch、银行地址-bankAddress、天数选择器-offsetDays，
+// 其中：性别可以不用字典，投资人类型没找到哪里用的，银行相关采用读取到内存的形式不用字典管理，天数选择器考虑换一种控件形式
+
+[
+//投资状态（子基金-基本信息）
+  {
+    "name": "投资状态", //字段名称
+    "key": "investStatus",  //字段key
+    "dictType":1, //字典类型：系统字典0、用户字典1
+    "logic":true, //逻辑判断：涉及、不涉及
+    "multiple":false, //多选
+    "allowInput":false, //用户可输入
+    "cascadeKey": "", //上级联动字段
+    "options": [
+      { "orderNum": 1, "name": "未投资", "keyName": "unInvest", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+      { "orderNum": 2, "name": "拟投资", "keyName": "toInvest", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+      { "orderNum": 3, "name": "已投资", "keyName": "investing", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 1, "description": "" },
+      { "orderNum": 4, "name": "已退出", "keyName": "invested", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": -1, "description": "" },
+      { "orderNum": 5, "name": "已清算", "keyName": "cleared", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": -1, "description": "" }
+    ]
+  },
+//基金类型（子基金-基本信息）
+  {
+    "name": "基金类型", //字段名称
+    "key": "fundType",  //字段key
+    "dictType":0, //字典类型：系统字典0、用户字典1
+    "logic":false, //逻辑判断：涉及t、不涉及f
+    "multiple":false, //多选
+    "allowInput":false, //用户可输入
+    "cascadeKey": "", //上级联动字段
+    "options": [
+      { "orderNum": 1, "name": "MA", "keyName": "MA", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "并购基金" },
+      { "orderNum": 2, "name": "PE", "keyName": "PE", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "股权投资基金" },
+      { "orderNum": 3, "name": "VC", "keyName": "VC", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "创业投资基金" },
+      { "orderNum": 4, "name": "AI", "keyName": "AI", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "天使投资基金" }
+    ]
+  },
+//币种（子基金-基本信息、子基金-账户管理、投资平台-账户管理、关联机构-基本信息）
+  {
+    "name": "币种", //字段名称
+    "key": "currency",  //字段key
+    "dictType":1, //字典类型：系统字典、用户字典
+    "logic":true, //逻辑判断：涉及、不涉及
+    "multiple":false, //多选
+    "allowInput":false, //用户可输入
+    "cascadeKey": "", //上级联动字段
+    "options": [
+      { "orderNum": 1, "name": "人民币", "keyName": "RMB", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+      { "orderNum": 2, "name": "美元", "keyName": "USD", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" }
+    ]
+  },
+//资金性质（子基金-基本信息、关联机构-基本信息）****原key为：institutionProperty
+  {
+    "name": "资金性质", //字段名称
+    "key": "currencyProperty",  //字段key
+    "dictType":0, //字典类型：系统字典0、用户字典1
+    "logic":false, //逻辑判断：涉及t、不涉及f
+    "multiple":false, //多选
+    "allowInput":false, //用户可输入
+    "cascadeKey": "", //上级联动字段
+    "options": [
+      { "orderNum": 1, "name": "内资", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 1, "description": "" },
+      { "orderNum": 2, "name": "外资", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 2, "description": "" },
+      { "orderNum": 3, "name": "合资", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 3, "description": "" }
+    ]
+  },
+//组织形式（子基金-基本信息、关联机构-基本信息）
+  {
+    "name": "组织形式", //字段名称
+    "key": "organizeForm",  //字段key
+    "dictType":0, //字典类型：系统字典0、用户字典1
+    "logic":false, //逻辑判断：涉及t、不涉及f
+    "multiple":false, //多选
+    "allowInput":false, //用户可输入
+    "cascadeKey": "", //上级联动字段
+    "options": [
+      { "orderNum": 1, "name": "有限合伙制", "keyName": "partnership", "content": "", "defaultValue": false, "upperOption": "", "label": "partnership", "numLabel": 0, "description": "" },
+      { "orderNum": 2, "name": "公司制", "keyName": "company", "content": "", "defaultValue": false, "upperOption": "", "label": "company", "numLabel": 0, "description": "" },
+      { "orderNum": 3, "name": "中外合作非法人制", "keyName": "JV", "content": "", "defaultValue": false, "upperOption": "", "label": "JV", "numLabel": 0, "description": "" },
+      { "orderNum": 4, "name": "契约型", "keyName": "contract", "content": "", "defaultValue": false, "upperOption": "", "label": "contract", "numLabel": 0, "description": "" }
+    ]
+  },
+//基金状态（子基金-基本信息）
+  {
+    "name": "基金状态", //字段名称
+    "key": "fundStatus",  //字段key
+    "dictType":0, //字典类型：系统字典0、用户字典1
+    "logic":true, //逻辑判断：涉及t、不涉及f
+    "multiple":false, //多选
+    "allowInput":false, //用户可输入
+    "cascadeKey": "", //上级联动字段
+    "options": [
+      { "orderNum": 1, "name": "投资期", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+      { "orderNum": 2, "name": "回收期", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+      { "orderNum": 3, "name": "延长期", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+      { "orderNum": 4, "name": "清算期", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+      { "orderNum": 5, "name": "已清算", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" }
+    ]
+  },
+
+//人员分工（子基金-人员分工）
+  {
+    "name": "人员分工", //字段名称
+    "key": "personDivision",  //字段key
+    "dictType":0, //字典类型：系统字典0、用户字典1
+    "logic":true, //逻辑判断：涉及t、不涉及f
+    "multiple":false, //多选
+    "allowInput":false, //用户可输入
+    "cascadeKey": "", //上级联动字段
+    "options": [
+      { "orderNum": 1, "name": "项目负责人", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+      { "orderNum": 2, "name": "项目经理", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+      { "orderNum": 3, "name": "项目助理", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" }
+    ]
+  },
+//人员外派（子基金-人员分工）
+  {
+    "name": "人员外派", //字段名称
+    "key": "personAssign",  //字段key
+    "dictType":0, //字典类型：系统字典0、用户字典1
+    "logic":true, //逻辑判断：涉及t、不涉及f
+    "multiple":true, //多选
+    "allowInput":false, //用户可输入
+    "cascadeKey": "", //上级联动字段
+    "options": [
+      { "orderNum": 1, "name": "董事", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "company", "numLabel": 0, "description": "" },
+      { "orderNum": 2, "name": "董事长", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "company", "numLabel": 0, "description": "" },
+      { "orderNum": 3, "name": "监事", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "company", "numLabel": 0, "description": "" },
+      { "orderNum": 4, "name": "监事长", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "company", "numLabel": 0, "description": "" },
+      { "orderNum": 5, "name": "投决会委员", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+      { "orderNum": 6, "name": "投委会观察员", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+      { "orderNum": 7, "name": "顾委会委员", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+      { "orderNum": 8, "name": "顾委会观察员", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" }
+    ]
+  },
+
+//支付周期（子基金-管理费）
+  {
+      "name": "支付周期", //字段名称
+      "key": "payCycle",  //字段key
+      "dictType":0, //字典类型：系统字典0、用户字典1
+      "logic":false, //逻辑判断：涉及t、不涉及f
+      "multiple":false, //多选
+      "allowInput":false, //用户可输入
+      "cascadeKey": "", //上级联动字段
+      "options": [
+      { "orderNum": 1, "name": "年度", "keyName": "year", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+      { "orderNum": 2, "name": "半年度", "keyName": "halfyear", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+      { "orderNum": 3, "name": "季度", "keyName": "quarter", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+      { "orderNum": 4, "name": "月度", "keyName": "month", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" }
+    ]
+  },
+//支付方式（子基金-管理费）****新增字典
+  {
+      "name": "支付方式", //字段名称
+      "key": "paymentWay",  //字段key
+      "dictType":0, //字典类型：系统字典0、用户字典1
+      "logic":false, //逻辑判断：涉及t、不涉及f
+      "multiple":false, //多选
+      "allowInput":false, //用户可输入
+      "cascadeKey": "", //上级联动字段
+      "options": [
+      { "orderNum": 1, "name": "开始前", "keyName": "beforeStart", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+      { "orderNum": 2, "name": "开始后", "keyName": "afterStart", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+      { "orderNum": 3, "name": "结束前", "keyName": "beforeEnd", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+      { "orderNum": 4, "name": "结束后", "keyName": "afterEnd", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" }
+    ]
+  },
+
+  //支付日类型（子基金-管理费）****新增字典
+  {
+    "name": "支付日类型", //字段名称
+    "key": "dayType",  //字段key
+    "dictType":0, //字典类型：系统字典0、用户字典1
+    "logic":false, //逻辑判断：涉及t、不涉及f
+    "multiple":false, //多选
+    "allowInput":false, //用户可输入
+    "cascadeKey": "", //上级联动字段
+    "options": [
+      { "orderNum": 1, "name": "自然日", "keyName": "natureDay", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+      { "orderNum": 2, "name": "工作日", "keyName": "workDay", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" }
+    ]
+  },
+//计算基数（子基金-管理费）
+  {
+      "name": "计算基数", //字段名称
+      "key": "feeBase",  //字段key
+      "dictType":1, //字典类型：系统字典0、用户字典1
+      "logic":false, //逻辑判断：涉及t、不涉及f
+      "multiple":false, //多选
+      "allowInput":false, //用户可输入
+      "cascadeKey": "", //上级联动字段
+      "options": [
+      { "orderNum": 1, "name": "承诺金额", "keyName": "commitment", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+      { "orderNum": 2, "name": "出资金额", "keyName": "payment", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+      { "orderNum": 3, "name": "在投成本", "keyName": "investmentCost", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+      { "orderNum": 4, "name": "其它", "keyName": "others", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" }
+    ]
+  },
+
+//关联关系（子基金-关联机构、关联机构-基本信息）
+  {
+      "name": "关联关系", //字段名称
+      "key": "affiliation",  //字段key
+      "dictType":1, //字典类型：系统字典0、用户字典1
+      "logic":false, //逻辑判断：涉及t、不涉及f
+      "multiple":false, //多选
+      "allowInput":false, //用户可输入
+      "cascadeKey": "", //上级联动字段
+      "options": [
+      { "orderNum": 1, "name": "有限合伙人", "keyName": "LP", "content": "", "defaultValue": false, "upperOption": "", "label": "partnership", "numLabel": 0, "description": "" },
+      { "orderNum": 2, "name": "普通合伙人", "keyName": "GP", "content": "", "defaultValue": false, "upperOption": "", "label": "partnership", "numLabel": 0, "description": "" },
+      { "orderNum": 3, "name": "执行事务合伙人", "keyName": "MP", "content": "", "defaultValue": false, "upperOption": "", "label": "partnership", "numLabel": 0, "description": "" },
+      { "orderNum": 4, "name": "特殊目的企业", "keyName": "SPV", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" }
+    ]
+  },
+
+//机构类型（子基金-下属机构）****新增字典
+  {
+      "name": "机构类型", //字段名称
+      "key": "subsidiaryType",  //字段key
+      "dictType":1, //字典类型：系统字典0、用户字典1
+      "logic":true, //逻辑判断：涉及t、不涉及f
+      "multiple":false, //多选
+      "allowInput":false, //用户可输入
+      "cascadeKey": "", //上级联动字段
+      "options": [
+      { "orderNum": 1, "name": "董事（会）", "keyName": "directors", "content": "", "defaultValue": false, "upperOption": "", "label": "company", "numLabel": 0, "description": "" },
+      { "orderNum": 2, "name": "监事（会）", "keyName": "supervisors", "content": "", "defaultValue": false, "upperOption": "", "label": "company", "numLabel": 0, "description": "" },
+      { "orderNum": 3, "name": "投资决策委员会", "keyName": "investmentCommittee", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+      { "orderNum": 4, "name": "顾问委员会", "keyName": "advisoryCommittee", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" }
+    ]
+  },
+//职务（子基金-下属机构）****新增（联动）
+  {
+      "name": "职务", //字段名称
+      "key": "subsidiaryPosition",  //字段key
+      "dictType":1, //字典类型：系统字典0、用户字典1
+      "logic":false, //逻辑判断：涉及t、不涉及f
+      "multiple":false, //多选
+      "allowInput":false, //用户可输入
+      "cascadeKey": "subsidiaryType", //上级联动字段
+      "options": [
+      { "orderNum": 1, "name": "董事长", "keyName": "", "content": "", "defaultValue": false, "upperOption": "directors", "label": "", "numLabel": 0, "description": "" },
+      { "orderNum": 2, "name": "董事", "keyName": "", "content": "", "defaultValue": false, "upperOption": "directors", "label": "", "numLabel": 0, "description": "" },
+      { "orderNum": 3, "name": "执行董事", "keyName": "", "content": "", "defaultValue": false, "upperOption": "directors", "label": "", "numLabel": 0, "description": "" },
+      { "orderNum": 4, "name": "外部董事", "keyName": "", "content": "", "defaultValue": false, "upperOption": "directors", "label": "", "numLabel": 0, "description": "" },
+      { "orderNum": 5, "name": "监事长", "keyName": "", "content": "", "defaultValue": false, "upperOption": "supervisors", "label": "", "numLabel": 0, "description": "" },
+      { "orderNum": 6, "name": "监事", "keyName": "", "content": "", "defaultValue": false, "upperOption": "supervisors", "label": "", "numLabel": 0, "description": "" },
+      { "orderNum": 7, "name": "主席", "keyName": "", "content": "", "defaultValue": false, "upperOption": "investmentCommittee", "label": "", "numLabel": 0, "description": "" },
+      { "orderNum": 8, "name": "委员", "keyName": "", "content": "", "defaultValue": false, "upperOption": "investmentCommittee", "label": "", "numLabel": 0, "description": "" },
+      { "orderNum": 9, "name": "观察员", "keyName": "", "content": "", "defaultValue": false, "upperOption": "investmentCommittee", "label": "", "numLabel": 0, "description": "" },
+      { "orderNum": 10, "name": "主席", "keyName": "", "content": "", "defaultValue": false, "upperOption": "advisoryCommittee", "label": "", "numLabel": 0, "description": "" },
+      { "orderNum": 11, "name": "委员", "keyName": "", "content": "", "defaultValue": false, "upperOption": "advisoryCommittee", "label": "", "numLabel": 0, "description": "" },
+      { "orderNum": 12, "name": "观察员", "keyName": "", "content": "", "defaultValue": false, "upperOption": "advisoryCommittee", "label": "", "numLabel": 0, "description": "" }
+    ]
+  },
+
+//资金方向（子基金-出资分配明细）****新增字典（单选框）（这个可用可不用！）
+  {
+      "name": "资金方向", //字段名称
+      "key": "cashFlow",  //字段key
+      "dictType":0, //字典类型：系统字典0、用户字典1
+      "logic":false, //逻辑判断：涉及t、不涉及f
+      "multiple":false, //多选
+      "allowInput":false, //用户可输入
+      "cascadeKey": "", //上级联动字段
+      "options": [
+      { "orderNum": 1, "name": "出资", "keyName": "CashOut", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+      { "orderNum": 2, "name": "分配", "keyName": "CashIn", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" }
+    ]
+  },
+//出资类型（子基金-出资分配明细）****新增字典
+  {
+      "name": "出资类型", //字段名称
+      "key": "cashOutType",  //字段key
+      "dictType":1, //字典类型：系统字典0、用户字典1
+      "logic":true, //逻辑判断：涉及t、不涉及f
+      "multiple":false, //多选
+      "allowInput":false, //用户可输入
+      "cascadeKey": "", //上级联动字段
+      "options": [
+      { "orderNum": 1, "name": "分批出资", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 1, "description": "" },
+      { "orderNum": 2, "name": "投资款", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 1, "description": "" },
+      { "orderNum": 3, "name": "管理费", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 1, "description": "" },
+      { "orderNum": 4, "name": "运营费用", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 1, "description": "" },
+      { "orderNum": 5, "name": "中介费用", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 1, "description": "" },
+      { "orderNum": 6, "name": "账户留存", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 1, "description": "" },
+      { "orderNum": 7, "name": "抵扣出资", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": -1, "description": "" },
+      { "orderNum": 8, "name": "罚息", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+      { "orderNum": 9, "name": "其他费用", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" }
+    ]
+  },
+//分配类型（子基金-出资分配明细）****新增字典
+  {
+      "name": "分配类型", //字段名称
+      "key": "cashInType",  //字段key
+      "dictType":1, //字典类型：系统字典0、用户字典1
+      "logic":true, //逻辑判断：涉及t、不涉及f
+      "multiple":false, //多选
+      "allowInput":false, //用户可输入
+      "cascadeKey": "", //上级联动字段
+      "options": [
+      { "orderNum": 1, "name": "项目退出", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 1, "description": "" },
+      { "orderNum": 2, "name": "项目分红", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 1, "description": "" },
+      { "orderNum": 3, "name": "项目还款", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 1, "description": "" },
+      { "orderNum": 4, "name": "项目利息", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 1, "description": "" },
+      { "orderNum": 5, "name": "抵扣出资", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": -1, "description": "" },
+      { "orderNum": 6, "name": "财务收入", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+      { "orderNum": 7, "name": "其他收入", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" }
+    ]
+  },
+
+//协议类型（子基金-相关协议）
+  {
+    "name": "协议类型", //字段名称
+    "key": "agreementType",  //字段key
+    "dictType":1, //字典类型：系统字典0、用户字典1
+    "logic":true, //逻辑判断：涉及t、不涉及f
+    "multiple":false, //多选
+    "allowInput":false, //用户可输入
+    "cascadeKey": "", //上级联动字段
+    "options": [
+      { "orderNum": 1, "name": "有限合伙协议", "keyName": "LPA", "content": "", "defaultValue": false, "upperOption": "", "label": "partnership", "numLabel": 0, "description": "" },
+      { "orderNum": 2, "name": "银行托管协议", "keyName": "FCA", "content": "", "defaultValue": false, "upperOption": "", "label": "partnership", "numLabel": 0, "description": "" },
+      { "orderNum": 3, "name": "公司章程", "keyName": "articles", "content": "", "defaultValue": false, "upperOption": "", "label": "company", "numLabel": 0, "description": "" }
+    ]
+  },
+//协议条款（子基金-相关协议）****新增字典（联动）
+  {
+    "name": "协议条款", //字段名称
+    "key": "agreementTerm",  //字段key
+    "dictType":1, //字典类型：系统字典0、用户字典1
+    "logic":false, //逻辑判断：涉及t、不涉及f
+    "multiple":false, //多选
+    "allowInput":false, //用户可输入
+    "cascadeKey": "agreementType", //上级联动字段
+    "options": [
+      { "orderNum": 1, "name": "管理费", "keyName": "", "content": "", "defaultValue": false, "upperOption": "LPA", "label": "", "numLabel": 0, "description": "" },
+      { "orderNum": 2, "name": "投资决策委员会", "keyName": "", "content": "", "defaultValue": false, "upperOption": "LPA", "label": "", "numLabel": 0, "description": "" },
+      { "orderNum": 3, "name": "合伙人大会", "keyName": "", "content": "", "defaultValue": false, "upperOption": "LPA", "label": "", "numLabel": 0, "description": "" },
+      { "orderNum": 4, "name": "基金报告", "keyName": "", "content": "", "defaultValue": false, "upperOption": "LPA", "label": "", "numLabel": 0, "description": "" },
+      { "orderNum": 5, "name": "资金分类", "keyName": "", "content": "", "defaultValue": false, "upperOption": "FCA", "label": "", "numLabel": 0, "description": "" },
+      { "orderNum": 6, "name": "划款凭证", "keyName": "", "content": "", "defaultValue": false, "upperOption": "FCA", "label": "", "numLabel": 0, "description": "" },
+      { "orderNum": 7, "name": "托管报告", "keyName": "", "content": "", "defaultValue": false, "upperOption": "FCA", "label": "", "numLabel": 0, "description": "" },
+      { "orderNum": 8, "name": "股东会", "keyName": "", "content": "", "defaultValue": false, "upperOption": "articles", "label": "", "numLabel": 0, "description": "" },
+      { "orderNum": 9, "name": "董事会", "keyName": "", "content": "", "defaultValue": false, "upperOption": "articles", "label": "", "numLabel": 0, "description": "" },
+      { "orderNum": 10, "name": "投资决策委员会", "keyName": "", "content": "", "defaultValue": false, "upperOption": "articles", "label": "", "numLabel": 0, "description": "" }
+    ]
+  },
+//签署方类型（子基金-相关协议）（联动）
+  {
+    "name": "签署方类型", //字段名称
+    "key": "signatoryType",  //字段key
+    "dictType":1, //字典类型：系统字典0、用户字典1
+    "logic":false, //逻辑判断：涉及t、不涉及f
+    "multiple":false, //多选
+    "allowInput":false, //用户可输入
+    "cascadeKey": "agreementType", //上级联动字段
+    "options": [
+      { "orderNum": 1, "name": "普通合伙人", "keyName": "", "content": "", "defaultValue": false, "upperOption": "LPA", "label": "", "numLabel": 0, "description": "" },
+      { "orderNum": 2, "name": "有限合伙人", "keyName": "", "content": "", "defaultValue": false, "upperOption": "LPA", "label": "", "numLabel": 0, "description": "" },
+      { "orderNum": 3, "name": "委托人", "keyName": "", "content": "", "defaultValue": false, "upperOption": "FCA", "label": "", "numLabel": 0, "description": "" },
+      { "orderNum": 4, "name": "托管人", "keyName": "", "content": "", "defaultValue": false, "upperOption": "FCA", "label": "", "numLabel": 0, "description": "" },
+      { "orderNum": 5, "name": "管理人", "keyName": "", "content": "", "defaultValue": false, "upperOption": "FCA", "label": "", "numLabel": 0, "description": "" },
+      { "orderNum": 6, "name": "股东", "keyName": "", "content": "", "defaultValue": false, "upperOption": "articles", "label": "", "numLabel": 0, "description": "" }
+    ]
+  },
+
+//会议类型（子基金-会议）
+  {
+    "name": "会议类型", //字段名称
+    "key": "meetingType",  //字段key
+    "dictType":1, //字典类型：系统字典0、用户字典1
+    "logic":true, //逻辑判断：涉及t、不涉及f
+    "multiple":false, //多选
+    "allowInput":false, //用户可输入
+    "cascadeKey": "", //上级联动字段
+    "options": [
+      { "orderNum": 1, "name": "合伙人大会", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "partnership", "numLabel": 0, "description": "" },
+      { "orderNum": 2, "name": "投委会会议", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "partnership", "numLabel": 0, "description": "" },
+      { "orderNum": 3, "name": "顾委会会议", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "partnership", "numLabel": 0, "description": "" },
+      { "orderNum": 4, "name": "股东会", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "company", "numLabel": 0, "description": "" },
+      { "orderNum": 5, "name": "董事会", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "company", "numLabel": 0, "description": "" },
+      { "orderNum": 6, "name": "监事会", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "company", "numLabel": 0, "description": "" },
+      { "orderNum": 7, "name": "投委会会议", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "company", "numLabel": 0, "description": "" }
+    ]
+  },
+//会议性质（子基金-会议）
+  {
+    "name": "会议性质", //字段名称
+    "key": "meetingProperty",  //字段key
+    "dictType":0, //字典类型：系统字典0、用户字典1
+    "logic":false, //逻辑判断：涉及t、不涉及f
+    "multiple":false, //多选
+    "allowInput":false, //用户可输入
+    "cascadeKey": "", //上级联动字段
+    "options": [
+      { "orderNum": 1, "name": "固定", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+      { "orderNum": 2, "name": "临时", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" }
+    ]
+  },
+//会议形式（子基金-会议）
+  {
+    "name": "会议形式", //字段名称
+    "key": "meetingForm",  //字段key
+    "dictType":0, //字典类型：系统字典0、用户字典1
+    "logic":false, //逻辑判断：涉及t、不涉及f
+    "multiple":false, //多选
+    "allowInput":false, //用户可输入
+    "cascadeKey": "", //上级联动字段
+    "options": [
+      { "orderNum": 1, "name": "现场", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+      { "orderNum": 2, "name": "通讯", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" }
+    ]
+  },
+//涉及内容（子基金-会议）****新增字典
+  {
+    "name": "涉及内容", //字段名称
+    "key": "meetingContent",  //字段key
+    "dictType":0, //字典类型：系统字典0、用户字典1
+    "logic":false, //逻辑判断：涉及t、不涉及f
+    "multiple":false, //多选
+    "allowInput":false, //用户可输入
+    "cascadeKey": "", //上级联动字段
+    "options": [
+      { "orderNum": 1, "name": "基金", "keyName": "yes", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+      { "orderNum": 2, "name": "管理人", "keyName": "no", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+      { "orderNum": 3, "name": "项目", "keyName": "no", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" }
+    ]
+  },
+//表决形式（子基金-会议）
+  {
+    "name": "表决形式", //字段名称
+    "key": "decisionForm",  //字段key
+    "dictType":0, //字典类型：系统字典0、用户字典1
+    "logic":false, //逻辑判断：涉及t、不涉及f
+    "multiple":false, //多选
+    "allowInput":false, //用户可输入
+    "cascadeKey": "", //上级联动字段
+    "options": [
+      { "orderNum": 1, "name": "现场", "keyName": "", "content": "", "defaultValue": false, "upperOption": "yes", "label": "", "numLabel": 0, "description": "" },
+      { "orderNum": 2, "name": "通讯", "keyName": "", "content": "", "defaultValue": false, "upperOption": "yes", "label": "", "numLabel": 0, "description": "" }
+    ]
+  },
+
+//事件类型（子基金-事件）
+  {
+    "name": "事件类型", //字段名称
+    "key": "eventType",  //字段key
+    "dictType":1, //字典类型：系统字典0、用户字典1
+    "logic":false, //逻辑判断：涉及t、不涉及f
+    "multiple":false, //多选
+    "allowInput":false, //用户可输入
+    "cascadeKey": "", //上级联动字段
+    "options": [
+      { "orderNum": 1, "name": "会面", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+      { "orderNum": 2, "name": "电话", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+      { "orderNum": 3, "name": "邮件", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+      { "orderNum": 4, "name": "其他", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" }
+    ]
+  },
+//事件状态（子基金-事件）****新增字典
+  {
+    "name": "事件状态", //字段名称
+    "key": "eventStatus",  //字段key
+    "dictType":0, //字典类型：系统字典0、用户字典1
+    "logic":true, //逻辑判断：涉及t、不涉及f
+    "multiple":false, //多选
+    "allowInput":false, //用户可输入
+    "cascadeKey": "", //上级联动字段
+    "options": [
+      { "orderNum": 1, "name": "无需处理", "keyName": "dealing", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+      { "orderNum": 2, "name": "未处理", "keyName": "undeal", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+      { "orderNum": 3, "name": "已处理", "keyName": "dealt", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" }
+    ]
+  },
+
+//变更类型（子基金-投资人、关联机构-股权结构、项目-股权结构）*****新增字典
+  {
+    "name": "变更类型", //字段名称
+    "key": "changeType",  //字段key
+    "dictType":0, //字典类型：系统字典0、用户字典1
+    "logic":true, //逻辑判断：涉及t、不涉及f
+    "multiple":false, //多选
+    "allowInput":false, //用户可输入
+    "cascadeKey": "", //上级联动字段
+    "options": [
+      { "orderNum": 1, "name": "增资", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 1, "description": "" },
+      { "orderNum": 2, "name": "减资", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": -1, "description": "" },
+      { "orderNum": 3, "name": "受让", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 1, "description": "" },
+      { "orderNum": 4, "name": "转让", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": -1, "description": "" },
+      { "orderNum": 5, "name": "划入", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 1, "description": "" },
+      { "orderNum": 6, "name": "划出", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": -1, "description": "" },
+      { "orderNum": 7, "name": "新名", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 1, "description": "" },
+      { "orderNum": 8, "name": "旧名", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": -1, "description": "" }
+    ]
+  },
+
+//报表类型（子基金-财务报表）
+  {
+    "name": "报表类型", //字段名称
+    "key": "financeType",  //字段key
+    "dictType":0, //字典类型：系统字典0、用户字典1
+    "logic":false, //逻辑判断：涉及t、不涉及f
+    "multiple":false, //多选
+    "allowInput":false, //用户可输入
+    "cascadeKey": "", //上级联动字段
+    "options": [
+      { "orderNum": 1, "name": "年度", "keyName": "year", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+      { "orderNum": 2, "name": "半年度", "keyName": "halfYear", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+      { "orderNum": 3, "name": "季度", "keyName": "quarter", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+      { "orderNum": 4, "name": "月度", "keyName": "month", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" }
+    ]
+  },
+
+//平台类型（投资平台-基本信息，投资人-基本信息）
+  {
+    "name": "平台类型", //字段名称
+    "key": "organizationType",  //字段key
+    "dictType":1, //字典类型：系统字典0、用户字典1
+    "logic":true, //逻辑判断：涉及t、不涉及f
+    "multiple":false, //多选
+    "allowInput":false, //用户可输入
+    "cascadeKey": "", //上级联动字段
+    "options": [
+      { "orderNum": 1, "name": "非基金", "keyName": "", "content": "", "defaultValue": true, "upperOption": "", "label": "noFund", "numLabel": 0, "description": "" },
+      { "orderNum": 2, "name": "基金", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "fund", "numLabel": 0, "description": "" }
+    ]
+  },
+
+//管理人类型（管理人-基本信息）
+  {
+    "name": "管理人台类型", //字段名称
+    "key": "administratorType",  //字段key
+    "dictType":1, //字典类型：系统字典0、用户字典1
+    "logic":false, //逻辑判断：涉及t、不涉及f
+    "multiple":true, //多选
+    "allowInput":false, //用户可输入
+    "cascadeKey": "", //上级联动字段
+    "options": [
+      { "orderNum": 1, "name": "MA", "keyName": "", "content": "", "defaultValue": true, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+      { "orderNum": 2, "name": "PE", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+      { "orderNum": 3, "name": "VC", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+      { "orderNum": 4, "name": "AI", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" }
+    ]
+  },
+//状态（管理人-团队）
+  {
+    "name": "状态", //字段名称
+    "key": "jobStatus",  //字段key
+    "dictType":0, //字典类型：系统字典0、用户字典1
+    "logic":false, //逻辑判断：涉及t、不涉及f
+    "multiple":false, //多选
+    "allowInput":false, //用户可输入
+    "cascadeKey": "", //上级联动字段
+    "options": [
+      { "orderNum": 1, "name": "在职", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+      { "orderNum": 2, "name": "兼职", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+      { "orderNum": 3, "name": "离职", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" }
+    ]
+  },
+//职务（管理人-团队）
+  {
+    "name": "职务", //字段名称
+    "key": "position",  //字段key
+    "dictType":1, //字典类型：系统字典0、用户字典1
+    "logic":false, //逻辑判断：涉及t、不涉及f
+    "multiple":false, //多选
+    "allowInput":true, //用户可输入
+    "cascadeKey": "", //上级联动字段
+    "options": [
+      { "orderNum": 1, "name": "创始合伙人", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+      { "orderNum": 2, "name": "管理合伙人", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+      { "orderNum": 3, "name": "执行合伙人", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+      { "orderNum": 4, "name": "合伙人", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+      { "orderNum": 5, "name": "董事总经理", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+      { "orderNum": 6, "name": "执行董事", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+      { "orderNum": 7, "name": "董事", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+      { "orderNum": 8, "name": "投资总监", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+      { "orderNum": 9, "name": "高级投资经理", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+      { "orderNum": 10, "name": "投资经理", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+      { "orderNum": 11, "name": "投资助理", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+      { "orderNum": 12, "name": "分析员", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" }
+    ]
+  },
+
+//国籍（团队-基本信息）
+  {
+    "name": "国籍", //字段名称
+    "key": "nationality",  //字段key
+    "dictType":0, //字典类型：系统字典0、用户字典1
+    "logic":true, //逻辑判断：涉及t、不涉及f
+    "multiple":false, //多选
+    "allowInput":false, //用户可输入
+    "cascadeKey": "", //上级联动字段
+    "options": [
+      { "orderNum": 1, "name": "中国", "keyName": "", "content": "", "defaultValue": true, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+      { "orderNum": 2, "name": "中国-香港", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+      { "orderNum": 3, "name": "中国-台湾", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+      { "orderNum": 4, "name": "中国-澳门", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+      { "orderNum": 5, "name": "美国", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+      { "orderNum": 6, "name": "澳大利亚", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" }
+    ]
+  },
+//证件类型（团队-基本信息）
+  {
+    "name": "证件类型", //字段名称
+    "key": "certificateType",  //字段key
+    "dictType":0, //字典类型：系统字典0、用户字典1
+    "logic":false, //逻辑判断：涉及t、不涉及f
+    "multiple":false, //多选
+    "allowInput":false, //用户可输入
+    "cascadeKey": "", //上级联动字段
+    "options": [
+      { "orderNum": 1, "name": "身份证", "keyName": "", "content": "", "defaultValue": true, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+      { "orderNum": 2, "name": "护照", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+      { "orderNum": 3, "name": "军官证", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+      { "orderNum": 4, "name": "其他", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" }
+    ]
+  },
+//学历学位（团队-教育背景）
+  {
+    "name": "证学历学位", //字段名称
+    "key": "degree",  //字段key
+    "dictType":1, //字典类型：系统字典0、用户字典1
+    "logic":false, //逻辑判断：涉及t、不涉及f
+    "multiple":false, //多选
+    "allowInput":false, //用户可输入
+    "cascadeKey": "", //上级联动字段
+    "options": [
+      { "orderNum": 1, "name": "本科", "keyName": "", "content": "", "defaultValue": true, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+      { "orderNum": 2, "name": "硕士", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+      { "orderNum": 3, "name": "博士", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+      { "orderNum": 4, "name": "其他", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" }
+    ]
+  },
+
+//项目状态（项目-基本信息）
+  {
+    "name": "项目状态", //字段名称
+    "key": "projectStatus",  //字段key
+    "dictType":1, //字典类型：系统字典0、用户字典1
+    "logic":false, //逻辑判断：涉及t、不涉及f
+    "multiple":false, //多选
+    "allowInput":false, //用户可输入
+    "cascadeKey": "", //上级联动字段
+    "options": [
+      { "orderNum": 1, "name": "初创期", "keyName": "", "content": "", "defaultValue": true, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+      { "orderNum": 2, "name": "成长期", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+      { "orderNum": 3, "name": "成熟期", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+      { "orderNum": 3, "name": "上市公司", "keyName": "onList", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" }
+    ]
+  },
+//挂牌上市地（项目-基本信息）
+  {
+    "name": "挂牌上市地", //字段名称
+    "key": "listedPlace",  //字段key
+    "dictType":0, //字典类型：系统字典0、用户字典1
+    "logic":true, //逻辑判断：涉及t、不涉及f
+    "multiple":false, //多选
+    "allowInput":false, //用户可输入
+    "cascadeKey": "", //上级联动字段
+    "options": [
+      { "orderNum": 1, "name": "上交所", "keyName": "", "content": "", "defaultValue": true, "upperOption": "", "label": "SH", "numLabel": 0, "description": "" },
+      { "orderNum": 2, "name": "深交所", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "SZ", "numLabel": 0, "description": "" }
+    ]
+  },
+//项目来源（项目-基本信息）（考虑是否要这个字段？）
+  {
+    "name": "项目来源", //字段名称
+    "key": "projectSource",  //字段key
+    "dictType":1, //字典类型：系统字典0、用户字典1
+    "logic":false, //逻辑判断：涉及t、不涉及f
+    "multiple":false, //多选
+    "allowInput":false, //用户可输入
+    "cascadeKey": "", //上级联动字段
+    "options": [
+      { "orderNum": 1, "name": "中介机构", "keyName": "", "content": "", "defaultValue": true, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+      { "orderNum": 2, "name": "团队资源", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" }
+    ]
+  },
+//国民经济行业分类（一级）（项目-基本信息）****新增字典
+  {
+    "name": "国民经济行业分类（一级）", //字段名称
+    "key": "category-GB-1",  //字段key
+    "dictType":0, //字典类型：系统字典0、用户字典1
+    "logic":false, //逻辑判断：涉及t、不涉及f
+    "multiple":false, //多选
+    "allowInput":false, //用户可输入
+    "cascadeKey": "", //上级联动字段
+    "options": [
+      { "orderNum": 1, "name": "A.农、林、牧、渔业", "keyName": "A", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+      { "orderNum": 2, "name": "B.采矿业", "keyName": "B", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+      { "orderNum": 3, "name": "C.制造业", "keyName": "C", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" }
+    ]
+  },
+//国民经济行业分类（二级）（项目-基本信息）****新增字典（联动）
+  {
+    "name": "国民经济行业分类（二级）", //字段名称
+    "key": "category-GB-2",  //字段key
+    "dictType":0, //字典类型：系统字典0、用户字典1
+    "logic":false, //逻辑判断：涉及t、不涉及f
+    "multiple":false, //多选
+    "allowInput":false, //用户可输入
+    "cascadeKey": "category-GB-1", //上级联动字段
+    "options": [
+      { "orderNum": 1, "name": "13.农副食品加工业", "keyName": "13", "content": "", "defaultValue": false, "upperOption": "C", "label": "", "numLabel": 0, "description": "" },
+      { "orderNum": 2, "name": "14.食品制造业", "keyName": "14", "content": "", "defaultValue": false, "upperOption": "C", "label": "", "numLabel": 0, "description": "" },
+      { "orderNum": 3, "name": "15.酒、饮料和精制茶制造业", "keyName": "15", "content": "", "defaultValue": false, "upperOption": "C", "label": "", "numLabel": 0, "description": "" }
+    ]
+  },
+//自定义行业分类（一级）（项目-基本信息）****新增字典
+  {
+    "name": "自定义行业分类（一级）", //字段名称
+    "key": "category-user-1",  //字段key
+    "dictType":1, //字典类型：系统字典0、用户字典1
+    "logic":false, //逻辑判断：涉及t、不涉及f
+    "multiple":false, //多选
+    "allowInput":false, //用户可输入
+    "cascadeKey": "", //上级联动字段
+    "options": [
+      { "orderNum": 1, "name": "35.医疗保健", "keyName": "35", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "35.Health Care" },
+      { "orderNum": 2, "name": "45.信息科技", "keyName": "45", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "45.Information Technology" },
+      { "orderNum": 3, "name": "55.公用事业", "keyName": "55", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "55.Utilities" }
+    ]
+  },
+//自定义行业分类（二级）（项目-基本信息）****新增字典（联动）
+  {
+    "name": "自定义行业分类（二级）", //字段名称
+    "key": "category-user-2",  //字段key
+    "dictType":0, //字典类型：系统字典0、用户字典1
+    "logic":false, //逻辑判断：涉及t、不涉及f
+    "multiple":false, //多选
+    "allowInput":false, //用户可输入
+    "cascadeKey": "category-user-1", //上级联动字段
+    "options": [
+      { "orderNum": 1, "name": "3510.医疗保健设备与服务", "keyName": "3510", "content": "", "defaultValue": false, "upperOption": "35", "label": "", "numLabel": 0, "description": "3510.Health Care Equipment & Services" },
+      { "orderNum": 2, "name": "3520.制药、生物技术与生命科学", "keyName": "3520", "content": "", "defaultValue": false, "upperOption": "35", "label": "", "numLabel": 0, "description": "Pharmaceuticals, Biotechnology & Life Sciences" },
+      { "orderNum": 3, "name": "4510.软件与服务", "keyName": "4510", "content": "", "defaultValue": false, "upperOption": "45", "label": "", "numLabel": 0, "description": "4510.Software & Services" },
+      { "orderNum": 4, "name": "4520.技术硬件与设备", "keyName": "4520", "content": "", "defaultValue": false, "upperOption": "45", "label": "", "numLabel": 0, "description": "4520.Technology Hardware & Equipment" },
+      { "orderNum": 5, "name": "4530.半导体与半导体设备", "keyName": "4530", "content": "", "defaultValue": false, "upperOption": "45", "label": "", "numLabel": 0, "description": "4530.Semiconductors & Semiconductor Equipment" },
+      { "orderNum": 6, "name": "5510.公用事业", "keyName": "5510", "content": "", "defaultValue": false, "upperOption": "55", "label": "", "numLabel": 0, "description": "5510.Utilities" }
+    ]
+  },
+
+//人员分工（项目-人员分工）****新增字典
+  {
+    "name": "人员分工", //字段名称
+    "key": "projectPersonDivision",  //字段key
+    "dictType":1, //字典类型：系统字典0、用户字典1
+    "logic":false, //逻辑判断：涉及t、不涉及f
+    "multiple":false, //多选
+    "allowInput":false, //用户可输入
+    "cascadeKey": "", //上级联动字段
+    "options": [
+      { "orderNum": 1, "name": "项目负责人", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+      { "orderNum": 2, "name": "项目经理", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+      { "orderNum": 3, "name": "项目助理", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" }
+    ]
+  },
+//人员委派（项目-人员分工）****新增字典
+  {
+    "name": "人员外派", //字段名称
+    "key": "projectPersonAssign",  //字段key
+    "dictType":1, //字典类型：系统字典0、用户字典1
+    "logic":false, //逻辑判断：涉及t、不涉及f
+    "multiple":true, //多选
+    "allowInput":false, //用户可输入
+    "cascadeKey": "", //上级联动字段
+    "options": [
+      { "orderNum": 1, "name": "董事", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+      { "orderNum": 2, "name": "董事长", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+      { "orderNum": 3, "name": "监事", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+      { "orderNum": 4, "name": "监事长", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" }
+    ]
+  },
+
+//估值方法（项目-投资概况）****新增字典
+  {
+    "name": "估值方法", //字段名称
+    "key": "valuationMethod",  //字段key
+    "dictType":0, //字典类型：系统字典0、用户字典1
+    "logic":false, //逻辑判断：涉及t、不涉及f
+    "multiple":false, //多选
+    "allowInput":false, //用户可输入
+    "cascadeKey": "", //上级联动字段
+    "options": [
+      { "orderNum": 1, "name": "Level-1", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+      { "orderNum": 2, "name": "Level-2", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+      { "orderNum": 3, "name": "Level-3", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" }
+    ]
+  },
+
+//投资轮次（项目-投资明细）
+  {
+    "name": "投资轮次", //字段名称
+    "key": "investTurn",  //字段key
+    "dictType":1, //字典类型：系统字典0、用户字典1
+    "logic":false, //逻辑判断：涉及t、不涉及f
+    "multiple":false, //多选
+    "allowInput":false, //用户可输入
+    "cascadeKey": "", //上级联动字段
+    "options": [
+      { "orderNum": 1, "name": "A", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+      { "orderNum": 2, "name": "B", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+      { "orderNum": 3, "name": "C", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+      { "orderNum": 4, "name": "D", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" }
+    ]
+  },
+//投资角色（项目-投资明细）
+  {
+    "name": "投资角色", //字段名称
+    "key": "investRole",  //字段key
+    "dictType":1, //字典类型：系统字典0、用户字典1
+    "logic":false, //逻辑判断：涉及t、不涉及f
+    "multiple":false, //多选
+    "allowInput":false, //用户可输入
+    "cascadeKey": "", //上级联动字段
+    "options": [
+      { "orderNum": 1, "name": "Leader", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+      { "orderNum": 2, "name": "Co-leader", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+      { "orderNum": 3, "name": "Follower", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+      { "orderNum": 4, "name": "Founder", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+      { "orderNum": 5, "name": "Co-founder", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" }
+    ]
+  },
+//投资形式（项目-投资明细）
+  {
+    "name": "投资形式", //字段名称
+    "key": "investForms",  //字段key
+    "dictType":1, //字典类型：系统字典0、用户字典1
+    "logic":false, //逻辑判断：涉及t、不涉及f
+    "multiple":false, //多选
+    "allowInput":false, //用户可输入
+    "cascadeKey": "", //上级联动字段
+    "options": [
+      { "orderNum": 1, "name": "增资", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+      { "orderNum": 2, "name": "受让", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+      { "orderNum": 3, "name": "定增", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+      { "orderNum": 4, "name": "大宗", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+      { "orderNum": 5, "name": "其他", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" }
+    ]
+  },
+//退出形式（项目-投资明细）
+  {
+    "name": "退出形式", //字段名称
+    "key": "withdrawalForms",  //字段key
+    "dictType":1, //字典类型：系统字典0、用户字典1
+    "logic":false, //逻辑判断：涉及t、不涉及f
+    "multiple":false, //多选
+    "allowInput":false, //用户可输入
+    "cascadeKey": "", //上级联动字段
+    "options": [
+      { "orderNum": 1, "name": "减资", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+      { "orderNum": 2, "name": "转让", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+      { "orderNum": 3, "name": "回购", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+      { "orderNum": 4, "name": "出售", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+      { "orderNum": 5, "name": "划转", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+      { "orderNum": 6, "name": "大宗", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+      { "orderNum": 7, "name": "其他", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" }
+    ]
+  }
+]

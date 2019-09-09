@@ -1,0 +1,27 @@
+[
+  {
+    "name": "新增",
+    "sysId":"module/path@add",
+    "module": {"sysKey": "fund.list"}
+  },
+  {
+    "name": "编辑",
+    "sysId":"module/path@edit",
+    "module": {"sysKey": "fund.basic-tab"}
+  },
+  {
+    "name": "编辑",
+    "sysId":"module/path@edit",
+    "module": {"sysKey": "fund.managementFee"}
+  },
+  {
+    "name": "新增",
+    "sysId":"module/path@add",
+    "module": {"sysKey": "fund.affiliates"}
+  },
+  {
+    "name": "编辑",
+    "sysId":"module/path@edit",
+    "module": {"sysKey": "fund.affiliates"}
+  }
+]

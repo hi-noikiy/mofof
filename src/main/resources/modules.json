@@ -1,0 +1,22 @@
+[
+  {
+    "name": "子基金大列表",
+    "sysKey": "fund.list",
+    "type": "TAB",
+    "subModules": [
+      {"name": "基本信息","sysKey": "fund.basic-tab","type": "MOD",
+       "subModules": [
+        {"name": "基本信息","sysKey": "fund.basic","type": "TAB"},
+        {"name": "管理费","sysKey": "fund.managementFee","type": "TAB"},
+        {"name": "关联机构","sysKey": "fund.affiliates","type": "TAB"}
+       ]
+      },
+      {"name": "出资分配","sysKey": "Investmentllocation","type": "MOD",
+       "subModules": [
+        {"name": "出资主体","sysKey": "mainBody","type": "TAB"},
+        {"name": "出资分配概况","sysKey": "distributionOverview","type": "TAB"}
+       ]
+      }
+    ]
+  }
+]

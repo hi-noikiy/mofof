@@ -1,0 +1,631 @@
+[
+    {
+        "name": "投资状态",
+        "key": "investStatus",
+        "dictType":1,
+        "logic":true,
+        "multiple":false,
+        "allowInput":false,
+        "cascadeKey": "",
+        "options": [
+            { "orderNum": 1, "name": "未投资", "keyName": "unInvest", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+            { "orderNum": 2, "name": "拟投资", "keyName": "toInvest", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+            { "orderNum": 3, "name": "已投资", "keyName": "investing", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 1, "description": "" },
+            { "orderNum": 4, "name": "已退出", "keyName": "invested", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": -1, "description": "" },
+            { "orderNum": 5, "name": "已清算", "keyName": "cleared", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": -1, "description": "" }
+        ]
+    },
+    {
+        "name": "基金状态",
+        "key": "fundStatus",
+        "dictType":0,
+        "logic":true,
+        "multiple":false,
+        "allowInput":false,
+        "cascadeKey": "",
+        "options": [
+            { "orderNum": 1, "name": "投资期", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+            { "orderNum": 2, "name": "回收期", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+            { "orderNum": 3, "name": "延长期", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+            { "orderNum": 4, "name": "清算期", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+            { "orderNum": 5, "name": "已清算", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" }
+        ]
+    },
+    {
+        "name": "基金类型",
+        "key": "fundType",
+        "dictType":0,
+        "logic":false,
+        "multiple":false,
+        "allowInput":false,
+        "cascadeKey": "",
+        "options": [
+            { "orderNum": 1, "name": "MA", "keyName": "MA", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "并购基金" },
+            { "orderNum": 2, "name": "PE", "keyName": "PE", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "股权投资基金" },
+            { "orderNum": 3, "name": "VC", "keyName": "VC", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "创业投资基金" },
+            { "orderNum": 4, "name": "AI", "keyName": "AI", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "天使投资基金" }
+        ]
+    },
+    {
+        "name": "币种",
+        "key": "currency",
+        "dictType":1,
+        "logic":true,
+        "multiple":false,
+        "allowInput":false,
+        "cascadeKey": "",
+        "options": [
+            { "orderNum": 1, "name": "人民币", "keyName": "CNY", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+            { "orderNum": 2, "name": "美元", "keyName": "USD", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" }
+        ]
+    },
+    {
+        "name": "组织形式",
+        "key": "organizeForm",
+        "dictType":0,
+        "logic":false,
+        "multiple":false,
+        "allowInput":false,
+        "cascadeKey": "",
+        "options": [
+        { "orderNum": 1, "name": "有限合伙制", "keyName": "partnership", "content": "", "defaultValue": false, "upperOption": "", "label": "partnership", "numLabel": 0, "description": "" },
+        { "orderNum": 2, "name": "公司制", "keyName": "company", "content": "", "defaultValue": false, "upperOption": "", "label": "company", "numLabel": 0, "description": "" },
+        { "orderNum": 3, "name": "中外合作非法人制", "keyName": "JV", "content": "", "defaultValue": false, "upperOption": "", "label": "JV", "numLabel": 0, "description": "" },
+        { "orderNum": 4, "name": "契约型", "keyName": "contract", "content": "", "defaultValue": false, "upperOption": "", "label": "contract", "numLabel": 0, "description": "" }
+        ]
+    },
+    {
+        "name": "资金性质",
+        "key": "currencyProperty",
+        "dictType":0,
+        "logic":false,
+        "multiple":false,
+        "allowInput":false,
+        "cascadeKey": "",
+        "options": [
+        { "orderNum": 1, "name": "内资", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 1, "description": "" },
+        { "orderNum": 2, "name": "外资", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 2, "description": "" },
+        { "orderNum": 3, "name": "合资", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 3, "description": "" }
+        ]
+    },
+    {
+        "name": "人员分工",
+        "key": "personDivision",
+        "dictType":0,
+        "logic":true,
+        "multiple":false,
+        "allowInput":false,
+        "cascadeKey": "",
+        "options": [
+        { "orderNum": 1, "name": "项目负责人", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+        { "orderNum": 2, "name": "项目经理", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+        { "orderNum": 3, "name": "项目助理", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" }
+        ]
+    },
+    {
+        "name": "人员外派",
+        "key": "personAssign",
+        "dictType":0,
+        "logic":true,
+        "multiple":true,
+        "allowInput":false,
+        "cascadeKey": "",
+        "options": [
+        { "orderNum": 1, "name": "董事", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "company", "numLabel": 0, "description": "" },
+        { "orderNum": 2, "name": "董事长", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "company", "numLabel": 0, "description": "" },
+        { "orderNum": 3, "name": "监事", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "company", "numLabel": 0, "description": "" },
+        { "orderNum": 4, "name": "监事长", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "company", "numLabel": 0, "description": "" },
+        { "orderNum": 5, "name": "投决会委员", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+        { "orderNum": 6, "name": "投委会观察员", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+        { "orderNum": 7, "name": "顾委会委员", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+        { "orderNum": 8, "name": "顾委会观察员", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" }
+        ]
+    },
+    {
+        "name": "支付周期",
+        "key": "payCycle",
+        "dictType":0,
+        "logic":false,
+        "multiple":false,
+        "allowInput":false,
+        "cascadeKey": "",
+        "options": [
+        { "orderNum": 1, "name": "年度", "keyName": "year", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+        { "orderNum": 2, "name": "半年度", "keyName": "halfYear", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+        { "orderNum": 3, "name": "季度", "keyName": "quarter", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+        { "orderNum": 4, "name": "月度", "keyName": "month", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" }
+    ]
+    },
+    {
+        "name": "支付方式",
+        "key": "paymentWay",
+        "dictType":0,
+        "logic":false,
+        "multiple":false,
+        "allowInput":false,
+        "cascadeKey": "",
+        "options": [
+        { "orderNum": 1, "name": "开始前", "keyName": "beforeStart", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+        { "orderNum": 2, "name": "开始后", "keyName": "afterStart", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+        { "orderNum": 3, "name": "结束前", "keyName": "beforeEnd", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+        { "orderNum": 4, "name": "结束后", "keyName": "afterEnd", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" }
+    ]
+    },
+    {
+        "name": "支付日类型",
+        "key": "dayType",
+        "dictType":0,
+        "logic":false,
+        "multiple":false,
+        "allowInput":false,
+        "cascadeKey": "",
+        "options": [
+        { "orderNum": 1, "name": "自然日", "keyName": "natureDay", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+        { "orderNum": 2, "name": "工作日", "keyName": "workDay", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" }
+        ]
+    },
+    {
+        "name": "计算基数",
+        "key": "feeBase",
+        "dictType":1,
+        "logic":false,
+        "multiple":false,
+        "allowInput":false,
+        "cascadeKey": "",
+        "options": [
+        { "orderNum": 1, "name": "承诺金额", "keyName": "commitment", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+        { "orderNum": 2, "name": "出资金额", "keyName": "payment", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+        { "orderNum": 3, "name": "在投成本", "keyName": "investmentCost", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+        { "orderNum": 4, "name": "其它", "keyName": "others", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" }
+    ]
+    },
+    {
+        "name": "关联关系",
+        "key": "affiliation",
+        "dictType":1,
+        "logic":false,
+        "multiple":false,
+        "allowInput":false,
+        "cascadeKey": "",
+        "options": [
+        { "orderNum": 1, "name": "有限合伙人", "keyName": "LP", "content": "", "defaultValue": false, "upperOption": "", "label": "partnership", "numLabel": 0, "description": "" },
+        { "orderNum": 2, "name": "普通合伙人", "keyName": "GP", "content": "", "defaultValue": false, "upperOption": "", "label": "partnership", "numLabel": 0, "description": "" },
+        { "orderNum": 3, "name": "执行事务合伙人", "keyName": "MP", "content": "", "defaultValue": false, "upperOption": "", "label": "partnership", "numLabel": 0, "description": "" },
+        { "orderNum": 4, "name": "特殊目的企业", "keyName": "SPV", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" }
+    ]
+    },
+    {
+        "name": "机构类型",
+        "key": "subsidiaryType",
+        "dictType":1,
+        "logic":true,
+        "multiple":false,
+        "allowInput":false,
+        "cascadeKey": "",
+        "options": [
+        { "orderNum": 1, "name": "董事（会）", "keyName": "directors", "content": "", "defaultValue": false, "upperOption": "", "label": "company", "numLabel": 0, "description": "" },
+        { "orderNum": 2, "name": "监事（会）", "keyName": "supervisors", "content": "", "defaultValue": false, "upperOption": "", "label": "company", "numLabel": 0, "description": "" },
+        { "orderNum": 3, "name": "投资决策委员会", "keyName": "investmentCommittee", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+        { "orderNum": 4, "name": "顾问委员会", "keyName": "advisoryCommittee", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" }
+    ]
+    },
+    {
+        "name": "职务",
+        "key": "subsidiaryPosition",
+        "dictType":1,
+        "logic":false,
+        "multiple":false,
+        "allowInput":false,
+        "cascadeKey": "subsidiaryType",
+        "options": [
+        { "orderNum": 1, "name": "董事长", "keyName": "", "content": "", "defaultValue": false, "upperOption": "directors", "label": "", "numLabel": 0, "description": "" },
+        { "orderNum": 2, "name": "董事", "keyName": "", "content": "", "defaultValue": false, "upperOption": "directors", "label": "", "numLabel": 0, "description": "" },
+        { "orderNum": 3, "name": "执行董事", "keyName": "", "content": "", "defaultValue": false, "upperOption": "directors", "label": "", "numLabel": 0, "description": "" },
+        { "orderNum": 4, "name": "外部董事", "keyName": "", "content": "", "defaultValue": false, "upperOption": "directors", "label": "", "numLabel": 0, "description": "" },
+        { "orderNum": 5, "name": "监事长", "keyName": "", "content": "", "defaultValue": false, "upperOption": "supervisors", "label": "", "numLabel": 0, "description": "" },
+        { "orderNum": 6, "name": "监事", "keyName": "", "content": "", "defaultValue": false, "upperOption": "supervisors", "label": "", "numLabel": 0, "description": "" },
+        { "orderNum": 7, "name": "主席", "keyName": "", "content": "", "defaultValue": false, "upperOption": "investmentCommittee", "label": "", "numLabel": 0, "description": "" },
+        { "orderNum": 8, "name": "委员", "keyName": "", "content": "", "defaultValue": false, "upperOption": "investmentCommittee", "label": "", "numLabel": 0, "description": "" },
+        { "orderNum": 9, "name": "观察员", "keyName": "", "content": "", "defaultValue": false, "upperOption": "investmentCommittee", "label": "", "numLabel": 0, "description": "" },
+        { "orderNum": 10, "name": "主席", "keyName": "", "content": "", "defaultValue": false, "upperOption": "advisoryCommittee", "label": "", "numLabel": 0, "description": "" },
+        { "orderNum": 11, "name": "委员", "keyName": "", "content": "", "defaultValue": false, "upperOption": "advisoryCommittee", "label": "", "numLabel": 0, "description": "" },
+        { "orderNum": 12, "name": "观察员", "keyName": "", "content": "", "defaultValue": false, "upperOption": "advisoryCommittee", "label": "", "numLabel": 0, "description": "" }
+    ]
+    },
+    {
+        "name": "出资类型",
+        "key": "cashOutType",
+        "dictType":1,
+        "logic":true,
+        "multiple":false,
+        "allowInput":false,
+        "cascadeKey": "",
+        "options": [
+        { "orderNum": 1, "name": "分批出资", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 1, "description": "" },
+        { "orderNum": 2, "name": "投资款", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 1, "description": "" },
+        { "orderNum": 3, "name": "管理费", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 1, "description": "" },
+        { "orderNum": 4, "name": "运营费用", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 1, "description": "" },
+        { "orderNum": 5, "name": "中介费用", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 1, "description": "" },
+        { "orderNum": 6, "name": "账户留存", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 1, "description": "" },
+        { "orderNum": 7, "name": "抵扣出资", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": -1, "description": "" },
+        { "orderNum": 8, "name": "罚息", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+        { "orderNum": 9, "name": "其他费用", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" }
+    ]
+    },
+    {
+        "name": "分配类型",
+        "key": "cashInType",
+        "dictType":1,
+        "logic":true,
+        "multiple":false,
+        "allowInput":false,
+        "cascadeKey": "",
+        "options": [
+        { "orderNum": 1, "name": "项目退出", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 1, "description": "" },
+        { "orderNum": 2, "name": "项目分红", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 1, "description": "" },
+        { "orderNum": 3, "name": "项目还款", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 1, "description": "" },
+        { "orderNum": 4, "name": "项目利息", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 1, "description": "" },
+        { "orderNum": 5, "name": "抵扣出资", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": -1, "description": "" },
+        { "orderNum": 6, "name": "财务收入", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+        { "orderNum": 7, "name": "其他收入", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+        { "orderNum": 8, "name": "罚息", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" }
+    ]
+    },
+    {
+        "name": "账户性质",
+        "key": "accountType",
+        "dictType":1,
+        "logic":true,
+        "multiple":false,
+        "allowInput":false,
+        "cascadeKey": "",
+        "options": [
+        { "orderNum": 1, "name": "基本账户", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+        { "orderNum": 2, "name": "一般账户", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+        { "orderNum": 3, "name": "专项账户", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+        { "orderNum": 4, "name": "临时账户", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" }
+    ]
+    },
+    {
+        "name": "协议类型",
+        "key": "agreementType",
+        "dictType":1,
+        "logic":true,
+        "multiple":false,
+        "allowInput":false,
+        "cascadeKey": "",
+        "options": [
+        { "orderNum": 1, "name": "有限合伙协议", "keyName": "LPA", "content": "", "defaultValue": false, "upperOption": "", "label": "partnership", "numLabel": 0, "description": "" },
+        { "orderNum": 2, "name": "银行托管协议", "keyName": "FCA", "content": "", "defaultValue": false, "upperOption": "", "label": "partnership", "numLabel": 0, "description": "" },
+        { "orderNum": 3, "name": "公司章程", "keyName": "articles", "content": "", "defaultValue": false, "upperOption": "", "label": "company", "numLabel": 0, "description": "" }
+        ]
+    },
+    {
+        "name": "签署方类型",
+        "key": "signatoryType",
+        "dictType":1,
+        "logic":false,
+        "multiple":false,
+        "allowInput":false,
+        "cascadeKey": "agreementType",
+        "options": [
+        { "orderNum": 1, "name": "普通合伙人", "keyName": "", "content": "", "defaultValue": false, "upperOption": "LPA", "label": "", "numLabel": 0, "description": "" },
+        { "orderNum": 2, "name": "有限合伙人", "keyName": "", "content": "", "defaultValue": false, "upperOption": "LPA", "label": "", "numLabel": 0, "description": "" },
+        { "orderNum": 3, "name": "委托人", "keyName": "", "content": "", "defaultValue": false, "upperOption": "FCA", "label": "", "numLabel": 0, "description": "" },
+        { "orderNum": 4, "name": "托管人", "keyName": "", "content": "", "defaultValue": false, "upperOption": "FCA", "label": "", "numLabel": 0, "description": "" },
+        { "orderNum": 5, "name": "管理人", "keyName": "", "content": "", "defaultValue": false, "upperOption": "FCA", "label": "", "numLabel": 0, "description": "" },
+        { "orderNum": 6, "name": "股东", "keyName": "", "content": "", "defaultValue": false, "upperOption": "articles", "label": "", "numLabel": 0, "description": "" }
+        ]
+    },
+    {
+        "name": "会议类型",
+        "key": "meetingType",
+        "dictType":1,
+        "logic":true,
+        "multiple":false,
+        "allowInput":false,
+        "cascadeKey": "",
+        "options": [
+        { "orderNum": 1, "name": "合伙人大会", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "partnership", "numLabel": 0, "description": "" },
+        { "orderNum": 2, "name": "投委会会议", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "partnership", "numLabel": 0, "description": "" },
+        { "orderNum": 3, "name": "顾委会会议", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "partnership", "numLabel": 0, "description": "" },
+        { "orderNum": 4, "name": "股东会", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "company", "numLabel": 0, "description": "" },
+        { "orderNum": 5, "name": "董事会", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "company", "numLabel": 0, "description": "" },
+        { "orderNum": 6, "name": "监事会", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "company", "numLabel": 0, "description": "" },
+        { "orderNum": 7, "name": "投委会会议", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "company", "numLabel": 0, "description": "" }
+        ]
+    },
+    {
+        "name": "涉及内容",
+        "key": "meetingContent",
+        "dictType":0,
+        "logic":false,
+        "multiple":false,
+        "allowInput":false,
+        "cascadeKey": "",
+        "options": [
+        { "orderNum": 1, "name": "基金", "keyName": "yes", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+        { "orderNum": 2, "name": "管理人", "keyName": "no", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+        { "orderNum": 3, "name": "项目", "keyName": "no", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" }
+        ]
+    },
+    {
+        "name": "事件类型",
+        "key": "eventType",
+        "dictType":1,
+        "logic":false,
+        "multiple":false,
+        "allowInput":false,
+        "cascadeKey": "",
+        "options": [
+        { "orderNum": 1, "name": "会面", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+        { "orderNum": 2, "name": "电话", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+        { "orderNum": 3, "name": "邮件", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+        { "orderNum": 4, "name": "其他", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" }
+        ]
+    },
+    {
+        "name": "变更类型",
+        "key": "changeType",
+        "dictType":0,
+        "logic":true,
+        "multiple":false,
+        "allowInput":false,
+        "cascadeKey": "",
+        "options": [
+        { "orderNum": 1, "name": "增资", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 1, "description": "" },
+        { "orderNum": 2, "name": "减资", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": -1, "description": "" },
+        { "orderNum": 3, "name": "受让", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 1, "description": "" },
+        { "orderNum": 4, "name": "转让", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": -1, "description": "" },
+        { "orderNum": 5, "name": "划入", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 1, "description": "" },
+        { "orderNum": 6, "name": "划出", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": -1, "description": "" },
+        { "orderNum": 7, "name": "新名", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 1, "description": "" },
+        { "orderNum": 8, "name": "旧名", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": -1, "description": "" }
+        ]
+    },
+    {
+        "name": "管理机构类型",
+        "key": "administratorType",
+        "dictType":1,
+        "logic":false,
+        "multiple":true,
+        "allowInput":false,
+        "cascadeKey": "",
+        "options": [
+        { "orderNum": 1, "name": "MA", "keyName": "", "content": "", "defaultValue": true, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+        { "orderNum": 2, "name": "PE", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+        { "orderNum": 3, "name": "VC", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+        { "orderNum": 4, "name": "AI", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" }
+        ]
+    },
+    {
+        "name": "状态",
+        "key": "jobStatus",
+        "dictType":0,
+        "logic":false,
+        "multiple":false,
+        "allowInput":false,
+        "cascadeKey": "",
+        "options": [
+        { "orderNum": 1, "name": "在职", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+        { "orderNum": 2, "name": "兼职", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+        { "orderNum": 3, "name": "离职", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" }
+        ]
+    },
+    {
+        "name": "职务",
+        "key": "position",
+        "dictType":1,
+        "logic":false,
+        "multiple":false,
+        "allowInput":true,
+        "cascadeKey": "",
+        "options": [
+        { "orderNum": 1, "name": "创始合伙人", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+        { "orderNum": 2, "name": "管理合伙人", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+        { "orderNum": 3, "name": "执行合伙人", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+        { "orderNum": 4, "name": "合伙人", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+        { "orderNum": 5, "name": "董事总经理", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+        { "orderNum": 6, "name": "执行董事", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+        { "orderNum": 7, "name": "董事", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+        { "orderNum": 8, "name": "投资总监", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+        { "orderNum": 9, "name": "高级投资经理", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+        { "orderNum": 10, "name": "投资经理", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+        { "orderNum": 11, "name": "投资助理", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+        { "orderNum": 12, "name": "分析员", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" }
+        ]
+    },
+    {
+        "name": "证件类型",
+        "key": "certificateType",
+        "dictType":0,
+        "logic":false,
+        "multiple":false,
+        "allowInput":false,
+        "cascadeKey": "",
+        "options": [
+        { "orderNum": 1, "name": "身份证", "keyName": "", "content": "", "defaultValue": true, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+        { "orderNum": 2, "name": "护照", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+        { "orderNum": 3, "name": "军官证", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+        { "orderNum": 4, "name": "其他", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" }
+        ]
+    },
+    {
+        "name": "证学历学位",
+        "key": "degree",
+        "dictType":1,
+        "logic":false,
+        "multiple":false,
+        "allowInput":false,
+        "cascadeKey": "",
+        "options": [
+        { "orderNum": 1, "name": "本科", "keyName": "", "content": "", "defaultValue": true, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+        { "orderNum": 2, "name": "硕士", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+        { "orderNum": 3, "name": "博士", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+        { "orderNum": 4, "name": "其他", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" }
+        ]
+    },
+    {
+        "name": "项目状态",
+        "key": "projectStatus",
+        "dictType":1,
+        "logic":false,
+        "multiple":false,
+        "allowInput":false,
+        "cascadeKey": "",
+        "options": [
+        { "orderNum": 1, "name": "初创期", "keyName": "", "content": "", "defaultValue": true, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+        { "orderNum": 2, "name": "成长期", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+        { "orderNum": 3, "name": "成熟期", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+        { "orderNum": 4, "name": "上市公司", "keyName": "onList", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" }
+        ]
+    },
+    {
+        "name": "行业分类",
+        "key": "industry",
+        "dictType":1,
+        "logic":false,
+        "multiple":false,
+        "allowInput":false,
+        "cascadeKey": "",
+        "options": [
+        { "orderNum": 1, "name": "申万分类", "keyName": "SW", "content": "", "defaultValue": true, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+        { "orderNum": 2, "name": "自定义分类一", "keyName": "自定义分类二", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 1, "description": "" },
+        { "orderNum": 3, "name": "自定义分类二", "keyName": "custom_2", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 1, "description": "" }
+    ]
+    },
+    {
+        "name": "挂牌上市地",
+        "key": "listedPlace",
+        "dictType":0,
+        "logic":true,
+        "multiple":false,
+        "allowInput":false,
+        "cascadeKey": "",
+        "options": [
+        { "orderNum": 1, "name": "上交所", "keyName": "", "content": "", "defaultValue": true, "upperOption": "", "label": "SH", "numLabel": 0, "description": "" },
+        { "orderNum": 2, "name": "深交所", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "SZ", "numLabel": 0, "description": "" }
+        ]
+    },
+    {
+        "name": "项目来源",
+        "key": "projectSource",
+        "dictType":1,
+        "logic":false,
+        "multiple":false,
+        "allowInput":false,
+        "cascadeKey": "",
+        "options": [
+        { "orderNum": 1, "name": "中介机构", "keyName": "", "content": "", "defaultValue": true, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+        { "orderNum": 2, "name": "团队资源", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" }
+        ]
+    },
+    {
+        "name": "人员分工",
+        "key": "projectPersonDivision",
+        "dictType":1,
+        "logic":false,
+        "multiple":false,
+        "allowInput":false,
+        "cascadeKey": "",
+        "options": [
+        { "orderNum": 1, "name": "项目负责人", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+        { "orderNum": 2, "name": "项目经理", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+        { "orderNum": 3, "name": "项目助理", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" }
+        ]
+    },
+    {
+        "name": "人员外派",
+        "key": "projectPersonAssign",
+        "dictType":1,
+        "logic":false,
+        "multiple":true,
+        "allowInput":false,
+        "cascadeKey": "",
+        "options": [
+        { "orderNum": 1, "name": "董事", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+        { "orderNum": 2, "name": "董事长", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+        { "orderNum": 3, "name": "监事", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+        { "orderNum": 4, "name": "监事长", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" }
+        ]
+    },
+    {
+        "name": "估值方法",
+        "key": "valuationMethod",
+        "dictType":0,
+        "logic":false,
+        "multiple":false,
+        "allowInput":false,
+        "cascadeKey": "",
+        "options": [
+        { "orderNum": 1, "name": "Level-1", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+        { "orderNum": 2, "name": "Level-2", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+        { "orderNum": 3, "name": "Level-3", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" }
+        ]
+    },
+    {
+        "name": "投资轮次",
+        "key": "investTurn",
+        "dictType":1,
+        "logic":false,
+        "multiple":false,
+        "allowInput":false,
+        "cascadeKey": "",
+        "options": [
+        { "orderNum": 1, "name": "A", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+        { "orderNum": 2, "name": "B", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+        { "orderNum": 3, "name": "C", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+        { "orderNum": 4, "name": "D", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" }
+        ]
+    },
+    {
+        "name": "投资角色",
+        "key": "investRole",
+        "dictType":1,
+        "logic":false,
+        "multiple":false,
+        "allowInput":false,
+        "cascadeKey": "",
+        "options": [
+        { "orderNum": 1, "name": "Leader", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+        { "orderNum": 2, "name": "Co-leader", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+        { "orderNum": 3, "name": "Follower", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+        { "orderNum": 4, "name": "Founder", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+        { "orderNum": 5, "name": "Co-founder", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" }
+        ]
+    },
+    {
+        "name": "投资形式",
+        "key": "investForms",
+        "dictType":1,
+        "logic":false,
+        "multiple":false,
+        "allowInput":false,
+        "cascadeKey": "",
+        "options": [
+        { "orderNum": 1, "name": "增资", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+        { "orderNum": 2, "name": "受让", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+        { "orderNum": 3, "name": "定增", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+        { "orderNum": 4, "name": "大宗", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+        { "orderNum": 5, "name": "其他", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" }
+        ]
+    },
+    {
+        "name": "退出形式",
+        "key": "withdrawalForms",
+        "dictType":1,
+        "logic":false,
+        "multiple":false,
+        "allowInput":false,
+        "cascadeKey": "",
+        "options": [
+        { "orderNum": 1, "name": "减资", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+        { "orderNum": 2, "name": "转让", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+        { "orderNum": 3, "name": "回购", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+        { "orderNum": 4, "name": "出售", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+        { "orderNum": 5, "name": "划转", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+        { "orderNum": 6, "name": "大宗", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" },
+        { "orderNum": 7, "name": "其他", "keyName": "", "content": "", "defaultValue": false, "upperOption": "", "label": "", "numLabel": 0, "description": "" }
+        ]
+    }
+]

@@ -1,0 +1,23 @@
+[
+    {
+        "rank": 1,
+        "nameEn": "IT",       
+        "nameCn": "编程",
+        "custom": false,
+        "used": true,
+        "tagText": "",
+        "tagNum": 1,
+        "description": "",
+        "dictExtIndustryL1s": [
+            { "rank": 1, "nameCn": "Java","nameEn": "java","insdustryCode": 1,
+              "dictExtIndustryL2s": [
+                {"rank": 1,"nameCn":"后端","nameEn":"houduan","insdustryCode":"1",
+                  "dictExtIndustryL3s":[
+                    {"rank": 1,"nameCn":"基金后端","nameEn":"jijin","insdustryCode":"1"}
+                  ]
+                }
+              ]
+            }            
+       ]
+    }
+]

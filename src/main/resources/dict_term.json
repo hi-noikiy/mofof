@@ -1,0 +1,15 @@
+[
+    { "rank": 1, "name": "基金规模", "cascadeOption":"LPA", "description": "" },
+    { "rank": 2, "name": "存续期", "cascadeOption":"LPA", "description": "" },
+    { "rank": 3, "name": "管理费", "cascadeOption":"LPA", "description": "" },
+    { "rank": 4, "name": "关键人", "cascadeOption":"LPA", "description": "" },
+
+    { "rank": 1, "name": "托管银行", "cascadeOption":"FCA", "description": "" },
+    { "rank": 2, "name": "划款类型", "cascadeOption":"FCA", "description": "" },
+    { "rank": 3, "name": "划款凭证", "cascadeOption":"FCA", "description": "" },
+    { "rank": 4, "name": "托管报告", "cascadeOption":"FCA", "description": "" },
+    
+    { "rank": 1, "name": "总裁办公室", "cascadeOption":"meetingAddress", "description": "" },
+    { "rank": 2, "name": "1#会议室",  "cascadeOption":"meetingAddress", "description": "" },
+    { "rank": 3, "name": "2#会议室",  "cascadeOption":"meetingAddress", "description": "" }
+]

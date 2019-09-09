@@ -1,0 +1,70 @@
+buildscript {
+    ext {
+        springBootVersion = '1.5.4.RELEASE'
+    }
+    repositories {
+        mavenLocal()
+        maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
+        maven { url 'url("https://plugins.gradle.org/m2/")' }
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+
+apply from: rootProject.file('gradle/install-git-hooks.gradle')
+
+springBoot{
+    mainClass = "com.mofof.MofofserverApplication"
+}
+version = '0.8'
+//sourceCompatibility = 1.8
+compileJava   {
+    sourceCompatibility = '1.8'
+    targetCompatibility = '1.8'
+}
+
+repositories {
+    mavenLocal()
+    maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
+    maven { url 'url("https://plugins.gradle.org/m2/")' }
+    mavenCentral()
+}
+
+
+dependencies {
+    compile('org.springframework.boot:spring-boot-starter-data-jpa')
+    compile('org.springframework.boot:spring-boot-starter-security')
+    compile('org.springframework.boot:spring-boot-starter-web')
+    compile group: 'org.springframework', name: 'spring-context-support', version: '4.3.8.RELEASE'
+    compile('com.alibaba:fastjson:1.2.31')
+    compile('com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.6.1')
+    compile('mysql:mysql-connector-java')
+    compile('org.hibernate:hibernate-java8')
+    compile('net.coobird:thumbnailator:0.4.8')
+    compile('io.springfox:springfox-swagger2:2.2.2')
+    compile('io.springfox:springfox-swagger-ui:2.2.2')
+    compile group: 'commons-io', name: 'commons-io', version: '2.6'
+    compile('com.aliyun:aliyun-java-sdk-core:4.1.0')
+    //shiro
+    compile 'org.apache.shiro:shiro-spring-boot-web-starter:1.4.0'
+    compile group: 'org.yaml', name: 'snakeyaml', version: '1.20'
+    implementation 'com.github.javafaker:javafaker:0.18'
+    implementation 'com.google.code.gson:gson:2.8.5'
+    // JDK 11 JaxB error fix
+    //implementation "javax.xml.bind:jaxb-api:2.2.11"
+    //implementation "com.sun.xml.bind:jaxb-core:2.2.11"
+    //implementation "com.sun.xml.bind:jaxb-impl:2.2.11"
+    //implementation "javax.activation:activation:1.1.1"
+    compile group: 'org.quartz-scheduler', name: 'quartz', version: '2.3.0'
+    compile group: 'javax.xml.bind', name: 'jaxb-api', version: '2.3.0'
+    compile group: 'com.sun.xml.bind', name: 'jaxb-core', version: '2.3.0'
+    compile group: 'com.sun.xml.bind', name: 'jaxb-impl', version: '2.3.0'
+    //改用阿里druid数据库连接池，方便监控状态
+//	compile ('com.alibaba:druid:1.1.5')
+    compile('org.springframework.boot:spring-boot-starter-test')
+}

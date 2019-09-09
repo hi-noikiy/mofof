@@ -1,0 +1,10 @@
+[
+    {
+        "rank": 1,
+        "bankType": "中国银行",
+        "dictExtBankNames":[
+            {"rank": 1,"bankName": "滨江中国银行"},
+            {"rank": 2,"bankName": "西湖中国银行"}
+         ]
+    }
+]

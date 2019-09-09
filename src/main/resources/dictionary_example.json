@@ -1,0 +1,583 @@
+[
+    {
+        "name": "投资状态",
+        "keyName": "investStatus",
+        "dictType":1,
+        "cascadeKey": "",
+        "options": [
+            { "rank": 1, "name": "未投资", "keyName": "unInvest", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" },
+            { "rank": 2, "name": "拟投资", "keyName": "toInvest", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" },
+            { "rank": 3, "name": "已投资", "keyName": "investing", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 1, "description": "" },
+            { "rank": 4, "name": "已退出", "keyName": "invested", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": -1, "description": "" },
+            { "rank": 5, "name": "已清算", "keyName": "cleared", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": -1, "description": "" }
+        ]
+    },
+    {
+        "name": "基金状态",
+        "keyName": "fundStatus",
+        "dictType":0,
+        "cascadeKey": "",
+        "options": [
+            { "rank": 1, "name": "投资期", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" },
+            { "rank": 2, "name": "回收期", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" },
+            { "rank": 3, "name": "延长期", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" },
+            { "rank": 4, "name": "清算期", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" },
+            { "rank": 5, "name": "已清算", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" },
+            { "rank": 6, "name": "投资期", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" },
+            { "rank": 7, "name": "回收期", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" },
+            { "rank": 8, "name": "延长期", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" },
+            { "rank": 9, "name": "清算期", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" },
+            { "rank": 10, "name": "已清算", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" },
+            { "rank": 11, "name": "投资期", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" },
+            { "rank": 12, "name": "回收期", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" },
+            { "rank": 13, "name": "延长期", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" },
+            { "rank": 14, "name": "清算期", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" },
+            { "rank": 15, "name": "已清算", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" },
+            { "rank": 16, "name": "投资期", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" },
+            { "rank": 17, "name": "回收期", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" },
+            { "rank": 18, "name": "延长期", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" },
+            { "rank": 19, "name": "清算期", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" },
+            { "rank": 20, "name": "已清算", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" },
+            { "rank": 21, "name": "投资期", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" },
+            { "rank": 22, "name": "回收期", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" },
+            { "rank": 23, "name": "延长期", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" },
+            { "rank": 24, "name": "清算期", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" },
+            { "rank": 25, "name": "已清算", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" },
+            { "rank": 26, "name": "投资期", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" },
+            { "rank": 27, "name": "回收期", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" },
+            { "rank": 28, "name": "延长期", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" },
+            { "rank": 29, "name": "清算期", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" },
+            { "rank": 30, "name": "已清算", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" }
+        ]
+    },
+    {
+        "name": "基金类型",
+        "keyName": "fundType",
+        "dictType":0,
+        "cascadeKey": "",
+        "options": [
+            { "rank": 1, "name": "MA", "keyName": "MA", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "并购基金" },
+            { "rank": 2, "name": "PE", "keyName": "PE", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "股权投资基金" },
+            { "rank": 3, "name": "VC", "keyName": "VC", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "创业投资基金" },
+            { "rank": 4, "name": "AI", "keyName": "AI", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "天使投资基金" }
+        ]
+    },
+    {
+        "name": "币种",
+        "keyName": "currency",
+        "dictType":1,
+        "cascadeKey": "",
+        "options": [
+            { "rank": 1, "name": "人民币", "keyName": "CNY", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" },
+            { "rank": 2, "name": "美元", "keyName": "USD", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" }
+        ]
+    },
+    {
+        "name": "组织形式",
+        "keyName": "organizeForm",
+        "dictType":0,
+        "cascadeKey": "",
+        "options": [
+        { "rank": 1, "name": "有限合伙制", "keyName": "partnership", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "partnership", "tagNum": 0, "description": "" },
+        { "rank": 2, "name": "公司制", "keyName": "company", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "company", "tagNum": 0, "description": "" },
+        { "rank": 3, "name": "中外合作非法人制", "keyName": "JV", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "JV", "tagNum": 0, "description": "" },
+        { "rank": 4, "name": "契约型", "keyName": "contract", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "contract", "tagNum": 0, "description": "" }
+        ]
+    },
+    {
+        "name": "资金性质",
+        "keyName": "currencyProperty",
+        "dictType":0,
+        "cascadeKey": "",
+        "options": [
+        { "rank": 1, "name": "内资", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 1, "description": "" },
+        { "rank": 2, "name": "外资", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 2, "description": "" },
+        { "rank": 3, "name": "合资", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 3, "description": "" }
+        ]
+    },
+    {
+        "name": "人员分工",
+        "keyName": "personDivision",
+        "dictType":0,
+        "cascadeKey": "",
+        "options": [
+        { "rank": 1, "name": "项目负责人", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" },
+        { "rank": 2, "name": "项目经理", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" },
+        { "rank": 3, "name": "项目助理", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" }
+        ]
+    },
+    {
+        "name": "人员外派",
+        "keyName": "personAssign",
+        "dictType":0,
+        "cascadeKey": "",
+        "options": [
+        { "rank": 1, "name": "董事", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "company", "tagNum": 0, "description": "" },
+        { "rank": 2, "name": "董事长", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "company", "tagNum": 0, "description": "" },
+        { "rank": 3, "name": "监事", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "company", "tagNum": 0, "description": "" },
+        { "rank": 4, "name": "监事长", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "company", "tagNum": 0, "description": "" },
+        { "rank": 5, "name": "投决会委员", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" },
+        { "rank": 6, "name": "投委会观察员", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" },
+        { "rank": 7, "name": "顾委会委员", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" },
+        { "rank": 8, "name": "顾委会观察员", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" }
+        ]
+    },
+    {
+        "name": "支付周期",
+        "keyName": "payCycle",
+        "dictType":0,
+        "cascadeKey": "",
+        "options": [
+        { "rank": 1, "name": "年度", "keyName": "year", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" },
+        { "rank": 2, "name": "半年度", "keyName": "halfYear", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" },
+        { "rank": 3, "name": "季度", "keyName": "quarter", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" },
+        { "rank": 4, "name": "月度", "keyName": "month", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" }
+    ]
+    },
+    {
+        "name": "支付方式",
+        "keyName": "paymentWay",
+        "dictType":0,
+        "cascadeKey": "",
+        "options": [
+        { "rank": 1, "name": "开始前", "keyName": "beforeStart", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" },
+        { "rank": 2, "name": "开始后", "keyName": "afterStart", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" },
+        { "rank": 3, "name": "结束前", "keyName": "beforeEnd", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" },
+        { "rank": 4, "name": "结束后", "keyName": "afterEnd", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" }
+    ]
+    },
+    {
+        "name": "支付日类型",
+        "keyName": "dayType",
+        "dictType":0,
+        "cascadeKey": "",
+        "options": [
+        { "rank": 1, "name": "自然日", "keyName": "natureDay", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" },
+        { "rank": 2, "name": "工作日", "keyName": "workDay", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" }
+        ]
+    },
+    {
+        "name": "计算基数",
+        "keyName": "feeBase",
+        "dictType":1,
+        "cascadeKey": "",
+        "options": [
+        { "rank": 1, "name": "承诺金额", "keyName": "commitment", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" },
+        { "rank": 2, "name": "出资金额", "keyName": "payment", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" },
+        { "rank": 3, "name": "在投成本", "keyName": "investmentCost", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" },
+        { "rank": 4, "name": "其它", "keyName": "others", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" }
+    ]
+    },
+    {
+        "name": "关联关系",
+        "keyName": "affiliation",
+        "dictType":1,
+        "cascadeKey": "",
+        "options": [
+        { "rank": 1, "name": "有限合伙人", "keyName": "LP", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "partnership", "tagNum": 0, "description": "" },
+        { "rank": 2, "name": "普通合伙人", "keyName": "GP", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "partnership", "tagNum": 0, "description": "" },
+        { "rank": 3, "name": "执行事务合伙人", "keyName": "MP", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "partnership", "tagNum": 0, "description": "" },
+        { "rank": 4, "name": "特殊目的企业", "keyName": "SPV", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" }
+    ]
+    },
+    {
+        "name": "机构类型",
+        "keyName": "subsidiaryType",
+        "dictType":1,
+        "cascadeKey": "",
+        "options": [
+        { "rank": 1, "name": "董事（会）", "keyName": "directors", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "company", "tagNum": 0, "description": "" },
+        { "rank": 2, "name": "监事（会）", "keyName": "supervisors", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "company", "tagNum": 0, "description": "" },
+        { "rank": 3, "name": "投资决策委员会", "keyName": "investmentCommittee", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" },
+        { "rank": 4, "name": "顾问委员会", "keyName": "advisoryCommittee", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" }
+    ]
+    },
+    {
+        "name": "职务",
+        "keyName": "subsidiaryPosition",
+        "dictType":1,
+        "cascadeKey": "subsidiaryType",
+        "options": [
+        { "rank": 1, "name": "董事长", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "directors", "tagText": "", "tagNum": 0, "description": "" },
+        { "rank": 2, "name": "董事", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "directors", "tagText": "", "tagNum": 0, "description": "" },
+        { "rank": 3, "name": "执行董事", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "directors", "tagText": "", "tagNum": 0, "description": "" },
+        { "rank": 4, "name": "外部董事", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "directors", "tagText": "", "tagNum": 0, "description": "" },
+        { "rank": 5, "name": "监事长", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "supervisors", "tagText": "", "tagNum": 0, "description": "" },
+        { "rank": 6, "name": "监事", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "supervisors", "tagText": "", "tagNum": 0, "description": "" },
+        { "rank": 7, "name": "主席", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "investmentCommittee", "tagText": "", "tagNum": 0, "description": "" },
+        { "rank": 8, "name": "委员", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "investmentCommittee", "tagText": "", "tagNum": 0, "description": "" },
+        { "rank": 9, "name": "观察员", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "investmentCommittee", "tagText": "", "tagNum": 0, "description": "" },
+        { "rank": 10, "name": "主席", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "advisoryCommittee", "tagText": "", "tagNum": 0, "description": "" },
+        { "rank": 11, "name": "委员", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "advisoryCommittee", "tagText": "", "tagNum": 0, "description": "" },
+        { "rank": 12, "name": "观察员", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "advisoryCommittee", "tagText": "", "tagNum": 0, "description": "" }
+    ]
+    },
+    {
+        "name": "出资类型",
+        "keyName": "cashOutType",
+        "dictType":1,
+        "cascadeKey": "",
+        "options": [
+        { "rank": 1, "name": "分批出资", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 1, "description": "" },
+        { "rank": 2, "name": "投资款", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 1, "description": "" },
+        { "rank": 3, "name": "管理费", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 1, "description": "" },
+        { "rank": 4, "name": "运营费用", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 1, "description": "" },
+        { "rank": 5, "name": "中介费用", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 1, "description": "" },
+        { "rank": 6, "name": "账户留存", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 1, "description": "" },
+        { "rank": 7, "name": "抵扣出资", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": -1, "description": "" },
+        { "rank": 8, "name": "罚息", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" },
+        { "rank": 9, "name": "其他费用", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" }
+    ]
+    },
+    {
+        "name": "分配类型",
+        "keyName": "cashInType",
+        "dictType":1,
+        "cascadeKey": "",
+        "options": [
+        { "rank": 1, "name": "项目退出", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 1, "description": "" },
+        { "rank": 2, "name": "项目分红", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 1, "description": "" },
+        { "rank": 3, "name": "项目还款", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 1, "description": "" },
+        { "rank": 4, "name": "项目利息", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 1, "description": "" },
+        { "rank": 5, "name": "抵扣出资", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": -1, "description": "" },
+        { "rank": 6, "name": "财务收入", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" },
+        { "rank": 7, "name": "其他收入", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" },
+        { "rank": 8, "name": "罚息", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" }
+    ]
+    },
+    {
+        "name": "账户性质",
+        "keyName": "accountType",
+        "dictType":1,
+        "cascadeKey": "",
+        "options": [
+        { "rank": 1, "name": "基本账户", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" },
+        { "rank": 2, "name": "一般账户", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" },
+        { "rank": 3, "name": "专项账户", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" },
+        { "rank": 4, "name": "临时账户", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" }
+    ]
+    },
+    {
+        "name": "签署方类型",
+        "keyName": "signatoryType",
+        "dictType":1,
+        "cascadeKey": "agreementType",
+        "options": [
+        { "rank": 1, "name": "普通合伙人", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "LPA", "tagText": "", "tagNum": 0, "description": "" },
+        { "rank": 2, "name": "有限合伙人", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "LPA", "tagText": "", "tagNum": 0, "description": "" },
+        { "rank": 3, "name": "委托人", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "FCA", "tagText": "", "tagNum": 0, "description": "" },
+        { "rank": 4, "name": "托管人", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "FCA", "tagText": "", "tagNum": 0, "description": "" },
+        { "rank": 5, "name": "管理人", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "FCA", "tagText": "", "tagNum": 0, "description": "" },
+        { "rank": 6, "name": "股东", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "articles", "tagText": "", "tagNum": 0, "description": "" }
+        ]
+    },
+    {
+        "name": "会议类型",
+        "keyName": "meetingType",
+        "dictType":1,
+        "cascadeKey": "",
+        "options": [
+        { "rank": 1, "name": "合伙人大会", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "partnership", "tagNum": 0, "description": "" },
+        { "rank": 2, "name": "投委会会议", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "partnership", "tagNum": 0, "description": "" },
+        { "rank": 3, "name": "顾委会会议", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "partnership", "tagNum": 0, "description": "" },
+        { "rank": 4, "name": "股东会", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "company", "tagNum": 0, "description": "" },
+        { "rank": 5, "name": "董事会", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "company", "tagNum": 0, "description": "" },
+        { "rank": 6, "name": "监事会", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "company", "tagNum": 0, "description": "" },
+        { "rank": 7, "name": "投委会会议", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "company", "tagNum": 0, "description": "" }
+        ]
+    },
+    {
+        "name": "涉及内容",
+        "keyName": "meetingContent",
+        "dictType":0,
+        "cascadeKey": "",
+        "options": [
+        { "rank": 1, "name": "基金", "keyName": "yes", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" },
+        { "rank": 2, "name": "管理人", "keyName": "no", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" },
+        { "rank": 3, "name": "项目", "keyName": "no", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" }
+        ]
+    },
+    {
+        "name": "事件类型",
+        "keyName": "eventType",
+        "dictType":1,
+        "cascadeKey": "",
+        "options": [
+        { "rank": 1, "name": "会面", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" },
+        { "rank": 2, "name": "电话", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" },
+        { "rank": 3, "name": "邮件", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" },
+        { "rank": 4, "name": "其他", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" }
+        ]
+    },
+    {
+        "name": "变更类型",
+        "keyName": "changeType",
+        "dictType":0,
+        "cascadeKey": "",
+        "options": [
+        { "rank": 1, "name": "增资", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 1, "description": "" },
+        { "rank": 2, "name": "减资", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": -1, "description": "" },
+        { "rank": 3, "name": "受让", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 1, "description": "" },
+        { "rank": 4, "name": "转让", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": -1, "description": "" },
+        { "rank": 5, "name": "划入", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 1, "description": "" },
+        { "rank": 6, "name": "划出", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": -1, "description": "" },
+        { "rank": 7, "name": "新名", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 1, "description": "" },
+        { "rank": 8, "name": "旧名", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": -1, "description": "" }
+        ]
+    },
+    {
+        "name": "管理机构类型",
+        "keyName": "administratorType",
+        "dictType":1,
+        "cascadeKey": "",
+        "options": [
+        { "rank": 1, "name": "MA", "keyName": "", "content": "", "defaultValue": true, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" },
+        { "rank": 2, "name": "PE", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" },
+        { "rank": 3, "name": "VC", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" },
+        { "rank": 4, "name": "AI", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" }
+        ]
+    },
+    {
+        "name": "状态",
+        "keyName": "jobStatus",
+        "dictType":0,
+        "cascadeKey": "",
+        "options": [
+        { "rank": 1, "name": "在职", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" },
+        { "rank": 2, "name": "兼职", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" },
+        { "rank": 3, "name": "离职", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" }
+        ]
+    },
+    {
+        "name": "职务",
+        "keyName": "position",
+        "dictType":1,
+        "cascadeKey": "",
+        "options": [
+        { "rank": 1, "name": "创始合伙人", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" },
+        { "rank": 2, "name": "管理合伙人", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" },
+        { "rank": 3, "name": "执行合伙人", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" },
+        { "rank": 4, "name": "合伙人", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" },
+        { "rank": 5, "name": "董事总经理", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" },
+        { "rank": 6, "name": "执行董事", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" },
+        { "rank": 7, "name": "董事", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" },
+        { "rank": 8, "name": "投资总监", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" },
+        { "rank": 9, "name": "高级投资经理", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" },
+        { "rank": 10, "name": "投资经理", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" },
+        { "rank": 11, "name": "投资助理", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" },
+        { "rank": 12, "name": "分析员", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" }
+        ]
+    },
+    {
+        "name": "证件类型",
+        "keyName": "certificateType",
+        "dictType":0,
+        "cascadeKey": "",
+        "options": [
+        { "rank": 1, "name": "身份证", "keyName": "", "content": "", "defaultValue": true, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" },
+        { "rank": 2, "name": "护照", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" },
+        { "rank": 3, "name": "军官证", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" },
+        { "rank": 4, "name": "其他", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" }
+        ]
+    },
+    {
+        "name": "证学历学位",
+        "keyName": "degree",
+        "dictType":1,
+        "cascadeKey": "",
+        "options": [
+        { "rank": 1, "name": "本科", "keyName": "", "content": "", "defaultValue": true, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" },
+        { "rank": 2, "name": "硕士", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" },
+        { "rank": 3, "name": "博士", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" },
+        { "rank": 4, "name": "其他", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" }
+        ]
+    },
+    {
+        "name": "项目状态",
+        "keyName": "projectStatus",
+        "dictType":1,
+        "cascadeKey": "",
+        "options": [
+        { "rank": 1, "name": "初创期", "keyName": "", "content": "", "defaultValue": true, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" },
+        { "rank": 2, "name": "成长期", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" },
+        { "rank": 3, "name": "成熟期", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" },
+        { "rank": 3, "name": "上市公司", "keyName": "onList", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" }
+        ]
+    },
+    {
+        "name": "行业分类",
+        "keyName": "industry",
+        "dictType":0,
+        "cascadeKey": "",
+        "options": [
+        { "rank": 1, "name": "申万分类", "keyName": "SW", "content": "", "defaultValue": true, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" },
+        { "rank": 2, "name": "自定义分类一", "keyName": "custom_1", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 1, "description": "" },
+        { "rank": 3, "name": "自定义分类二", "keyName": "custom_2", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 1, "description": "" }
+        ]
+    },
+    {
+        "name": "挂牌上市地",
+        "keyName": "listedPlace",
+        "dictType":0,
+        "cascadeKey": "",
+        "options": [
+        { "rank": 1, "name": "上交所", "keyName": "", "content": "", "defaultValue": true, "cascadeOption": "", "tagText": "SH", "tagNum": 0, "description": "" },
+        { "rank": 2, "name": "深交所", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "SZ", "tagNum": 0, "description": "" }
+        ]
+    },
+    {
+        "name": "项目来源",
+        "keyName": "projectSource",
+        "dictType":1,
+        "cascadeKey": "",
+        "options": [
+        { "rank": 1, "name": "中介机构", "keyName": "", "content": "", "defaultValue": true, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" },
+        { "rank": 2, "name": "团队资源", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" }
+        ]
+    },
+    {
+        "name": "人员分工",
+        "keyName": "projectPersonDivision",
+        "dictType":1,
+        "cascadeKey": "",
+        "options": [
+        { "rank": 1, "name": "项目负责人", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" },
+        { "rank": 2, "name": "项目经理", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" },
+        { "rank": 3, "name": "项目助理", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" }
+        ]
+    },
+    {
+        "name": "人员外派",
+        "keyName": "projectPersonAssign",
+        "dictType":1,
+        "cascadeKey": "",
+        "options": [
+        { "rank": 1, "name": "董事", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" },
+        { "rank": 2, "name": "董事长", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" },
+        { "rank": 3, "name": "监事", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" },
+        { "rank": 4, "name": "监事长", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" }
+        ]
+    },
+    {
+        "name": "估值方法",
+        "keyName": "valuationMethod",
+        "dictType":0,
+        "cascadeKey": "",
+        "options": [
+        { "rank": 1, "name": "Level-1", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" },
+        { "rank": 2, "name": "Level-2", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" },
+        { "rank": 3, "name": "Level-3", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" }
+        ]
+    },
+    {
+        "name": "投资轮次",
+        "keyName": "investTurn",
+        "dictType":1,
+        "cascadeKey": "",
+        "options": [
+        { "rank": 1, "name": "A", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" },
+        { "rank": 2, "name": "B", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" },
+        { "rank": 3, "name": "C", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" },
+        { "rank": 4, "name": "D", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" }
+        ]
+    },
+    {
+        "name": "投资角色",
+        "keyName": "investRole",
+        "dictType":1,
+        "cascadeKey": "",
+        "options": [
+        { "rank": 1, "name": "Leader", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" },
+        { "rank": 2, "name": "Co-leader", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" },
+        { "rank": 3, "name": "Follower", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" },
+        { "rank": 4, "name": "Founder", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" },
+        { "rank": 5, "name": "Co-founder", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" }
+        ]
+    },
+    {
+        "name": "投资形式",
+        "keyName": "investForms",
+        "dictType":1,
+        "cascadeKey": "",
+        "options": [
+        { "rank": 1, "name": "增资", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" },
+        { "rank": 2, "name": "受让", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" },
+        { "rank": 3, "name": "定增", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" },
+        { "rank": 4, "name": "大宗", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" },
+        { "rank": 5, "name": "其他", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" }
+        ]
+    },
+    {
+        "name": "退出形式",
+        "keyName": "withdrawalForms",
+        "dictType":1,
+        "cascadeKey": "",
+        "options": [
+        { "rank": 1, "name": "减资", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" },
+        { "rank": 2, "name": "转让", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" },
+        { "rank": 3, "name": "回购", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" },
+        { "rank": 4, "name": "出售", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" },
+        { "rank": 5, "name": "划转", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" },
+        { "rank": 6, "name": "大宗", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" },
+        { "rank": 7, "name": "其他", "keyName": "", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" }
+        ]
+    },
+
+    {
+        "name": "会议地址",
+        "keyName": "meetingAddress",
+        "dictType": 3,
+        "cascadeKey": "",
+        "options":  [
+       { "rank": 1, "name": "总裁办公室", "cascadeOption":"", "description": "" },
+       { "rank": 2, "name": "1#会议室",  "cascadeOption":"", "description": "" },
+       { "rank": 3, "name": "2#会议室",  "cascadeOption":"", "description": "" }
+       ] 
+    },
+
+    {
+        "name": "提醒时间",
+        "keyName": "timeReminder",
+        "dictType": 3,
+        "cascadeKey": "",
+        "options":  [
+       { "rank": 1, "name": "提前5分钟", "cascadeOption":"", "description": "" },
+       { "rank": 2, "name": "提前10分钟",  "cascadeOption":"", "description": "" },
+       { "rank": 3, "name": "提前15分钟",  "cascadeOption":"", "description": "" },
+       { "rank": 4, "name": "提前20分钟",  "cascadeOption":"", "description": "" }
+       ] 
+    },
+        
+    {
+        "name": "协议类型",
+        "keyName": "agreementType",
+        "dictType": 2,
+        "cascadeKey": "",
+        "options": [
+            { "rank": 1, "name": "有限合伙协议", "keyName": "LPA", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "partnership", "tagNum": 0, "description": "" },
+            { "rank": 2, "name": "银行托管协议", "keyName": "FCA", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "partnership", "tagNum": 0, "description": "" },
+            { "rank": 3, "name": "公司章程", "keyName": "articles", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "company", "tagNum": 0, "description": "" }
+        ],
+        "dictTerms": [
+            { "rank": 1, "name": "基金规模", "keyName": "jijinguimo","cascadeOption":"LPA", "description": "" },
+            { "rank": 2, "name": "存续期", "keyName": "cunxuqi","cascadeOption":"LPA", "description": "" },
+            { "rank": 3, "name": "管理费", "keyName": "guanlifei","cascadeOption":"LPA", "description": "" },
+            { "rank": 4, "name": "关键人", "keyName": "guanjianren","cascadeOption":"LPA", "description": "" },
+
+            { "rank": 1, "name": "托管银行", "keyName": "tuoguanyinhang","cascadeOption":"FCA", "description": "" },
+            { "rank": 2, "name": "划款类型", "keyName": "huakuanleixing", "cascadeOption":"FCA", "description": "" },
+            { "rank": 3, "name": "划款凭证", "keyName": "huakuanpingzheng","cascadeOption":"FCA", "description": "" },
+            { "rank": 4, "name": "托管报告", "keyName": "tuoguanbaogao","cascadeOption":"FCA", "description": "" }
+        ]        
+    },
+    {
+        "name": "自定义行业分类",
+        "keyName": "industry_custom",
+        "dictType": 2,
+        "cascadeKey": "",
+        "options": [
+        { "rank": 1, "name": "自定义分类一", "keyName": "custom_1", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" },
+        { "rank": 2, "name": "自定义分类二", "keyName": "custom_2", "content": "", "defaultValue": false, "cascadeOption": "", "tagText": "", "tagNum": 0, "description": "" }
+        ]
+    }    
+]

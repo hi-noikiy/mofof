@@ -1,0 +1,331 @@
+//  API 页面配置可返回 /role-module?role=""&moduleGroup="",包含“modules”。
+[
+    {
+        "role": { "value": "超级管理员" },
+        "modules": [
+            {
+                "tabName": "",
+                "moduleName": "个人设置",
+                "moduleKey": "setting-user",
+                "moduleGroup": "setting-user",
+                "desc": "",
+                "btns": []
+            },{
+                "tabName": "",
+                "moduleName": "产品设置",
+                "moduleKey": "setting-mofof",
+                "moduleGroup": "setting-mofof",
+                "desc": "",
+                "btns": []
+            },{
+                "tabName": "",
+                "moduleName": "角色管理",
+                "moduleKey": "sys-role",
+                "moduleGroup": "sys-role",
+                "desc": "",
+                "btns": []
+            },{
+                "tabName": "",
+                "moduleName": "字典管理",
+                "moduleKey": "sys-dict",
+                "moduleGroup": "sys-dict",
+                "desc": "",
+                "btns": [],
+                "subModules": [
+                    {
+                        "tabName": "基础字典",
+                        "moduleName": "基础字典管理",
+                        "moduleKey": "dict-base",
+                        "moduleGroup": "sys-dict",
+                        "desc": "",
+                        "btns": []
+                    },{
+                        "tabName": "高级字典",
+                        "moduleName": "高级字典管理",
+                        "moduleKey": "dict-master",
+                        "moduleGroup": "sys-dict",
+                        "desc": "",
+                        "btns": []
+                    },{
+                        "tabName": "远程字典",
+                        "moduleName": "远程字典管理",
+                        "moduleKey": "dict-remote",
+                        "moduleGroup": "sys-dict",
+                        "desc": "",
+                        "btns": []
+                    }
+                ]
+            }
+        ]
+    },{
+        "role": { "value": "管理员" },
+        "modules": [
+            {
+                "tabName": "",
+                "moduleName": "个人设置",
+                "moduleKey": "setting-user",
+                "moduleGroup": "setting-user",
+                "desc": "",
+                "btns": []
+            },{
+                "tabName": "",
+                "moduleName": "系统设置",
+                "moduleKey": "setting-sys",
+                "moduleGroup": "setting-sys",
+                "desc": "",
+                "btns": []
+            },{
+                "tabName": "",
+                "moduleName": "部门管理",
+                "moduleKey": "sys-dept",
+                "moduleGroup": "sys-dept",
+                "desc": "",
+                "btns": []
+            },{
+                "tabName": "",
+                "moduleName": "用户管理",
+                "moduleKey": "sys-users",
+                "moduleGroup": "sys-users",
+                "desc": "",
+                "btns": []
+            },{
+                "tabName": "",
+                "moduleName": "字典管理",
+                "moduleKey": "sys-dict",
+                "moduleGroup": "sys-dict",
+                "desc": "",
+                "btns": [],
+                "subModules": [
+                    {
+                        "tabName": "基础字典",
+                        "moduleName": "基础字典管理",
+                        "moduleKey": "dict-base",
+                        "moduleGroup": "sys-dict",
+                        "desc": "",
+                        "btns": []
+                    },{
+                        "tabName": "高级字典",
+                        "moduleName": "高级字典管理",
+                        "moduleKey": "dict-master",
+                        "moduleGroup": "sys-dict",
+                        "desc": "",
+                        "btns": []
+                    },{
+                        "tabName": "远程字典",
+                        "moduleName": "远程字典管理",
+                        "moduleKey": "dict-remote",
+                        "moduleGroup": "sys-dict",
+                        "desc": "",
+                        "btns": []
+                    }
+                ]
+            }
+        ]
+    },{
+        "role": { "value": "财务负责人" },
+        "modules": [
+            {
+                "tabName": "",
+                "moduleName": "工作台",
+                "moduleKey": "workbench",
+                "moduleGroup": "workbench",
+                "desc": "",
+                "btns": [],
+                "subModules": [
+                    {
+                        "tabName": "",
+                        "moduleName": "我的工作",
+                        "moduleKey": "job-mini",
+                        "moduleGroup": "workbench",
+                        "desc": "",
+                        "btns": []
+                    },{
+                        "tabName": "",
+                        "moduleName": "我的邮件",
+                        "moduleKey": "mail-mini",
+                        "moduleGroup": "workbench",
+                        "desc": "",
+                        "btns": []
+                    }
+                ]
+            },{
+                "tabName": "",
+                "moduleName": "我的日程",
+                "moduleKey": "ds-calender",
+                "moduleGroup": "calender",
+                "desc": "",
+                "btns": []
+            },{
+                "tabName": "",
+                "moduleName": "我的邮件",
+                "moduleKey": "",
+                "moduleGroup": "mail",
+                "desc": "",
+                "btns": []
+            },{
+                "tabName": "",
+                "moduleName": "我的文件",
+                "moduleKey": "file-user",
+                "moduleGroup": "file-user",
+                "desc": "",
+                "btns": []
+            },{
+                "tabName": "",
+                "moduleName": "投资平台大列表",
+                "moduleKey": "platform-list",
+                "moduleGroup": "platform",
+                "desc": "",
+                "btns": [
+                    { "btnName": "新建", "btnKey": "add" }
+                ],
+                "subModules": [
+                    {
+                        "tabName": "基本信息",
+                        "moduleName": "基本信息",
+                        "moduleKey": "platform-info",
+                        "moduleGroup": "platform",
+                        "desc": "",
+                        "btns": [
+                            { "btnName": "编辑", "btnKey": "edit" }
+                        ]
+                    },{
+                        "tabName": "出资分配",
+                        "moduleName": "投资标的",
+                        "moduleKey": "platform-portfolio",
+                        "moduleGroup": "platform",
+                        "desc": "“投资标的”、“出资分配概况”、“出资分配明细”需放置于同一个标签下！",
+                        "btns": [
+                            { "btnName": "新建", "btnKey": "add" },
+                            { "btnName": "编辑", "btnKey": "edit" }
+                        ]
+                    },{
+                        "tabName": "出资分配",
+                        "moduleName": "出资分配概况",
+                        "moduleKey": "platform-cashflow-overall",
+                        "moduleGroup": "platform",
+                        "desc": "“投资标的”、“出资分配概况”、“出资分配明细”需放置于同一个标签下！",
+                        "btns": []
+                    },{
+                        "tabName": "出资分配",
+                        "moduleName": "出资分配明细",
+                        "moduleKey": "platform-cashflow-detail",
+                        "moduleGroup": "platform",
+                        "desc": "“投资标的”、“出资分配概况”、“出资分配明细”需放置于同一个标签下！",
+                        "btns": [
+                            { "btnName": "新建", "btnKey": "add" },
+                            { "btnName": "编辑", "btnKey": "edit" }
+                        ]
+                    },{
+                        "tabName": "银行账户",
+                        "moduleName": "账户管理",
+                        "moduleKey": "platform-account",
+                        "moduleGroup": "platform",
+                        "desc": "",
+                        "btns": [
+                            { "btnName": "新建", "btnKey": "add" },
+                            { "btnName": "编辑", "btnKey": "edit" }
+                        ]
+                    }
+                ]
+            },{
+                "tabName": "",
+                "moduleName": "子基金大列表",
+                "moduleKey": "fund-list",
+                "moduleGroup": "fund",
+                "desc": "",
+                "btns": [
+                    { "btnName": "新建", "btnKey": "add" }
+                ],
+                "subModules": [
+                    {
+                        "tabName": "基本信息",
+                        "moduleName": "基本信息",
+                        "moduleKey": "fund-info",
+                        "moduleGroup": "fund",
+                        "desc": "",
+                        "btns": []
+                    },{
+                        "tabName": "基本信息",
+                        "moduleName": "人员分工",
+                        "moduleKey": "fund-assignment",
+                        "moduleGroup": "fund",
+                        "desc": "",
+                        "btns": []
+                    },{
+                        "tabName": "基本信息",
+                        "moduleName": "管理费",
+                        "moduleKey": "fund-managefee",
+                        "moduleGroup": "fund",
+                        "desc": "",
+                        "btns": []
+                    },{
+                        "tabName": "出资分配",
+                        "moduleName": "投资主体",
+                        "moduleKey": "fund-platform",
+                        "moduleGroup": "fund",
+                        "desc": "“投资主体”、“出资分配概况”、“出资分配明细”需放置于同一个标签下！",
+                        "btns": [
+                            { "btnName": "新建", "btnKey": "add" },
+                            { "btnName": "编辑", "btnKey": "edit" }
+                        ]
+                    },{
+                        "tabName": "出资分配",
+                        "moduleName": "出资分配概况",
+                        "moduleKey": "fund-cashflow-overall",
+                        "moduleGroup": "fund",
+                        "desc": "“投资主体”、“出资分配概况”、“出资分配明细”需放置于同一个标签下！",
+                        "btns": []
+                    },{
+                        "tabName": "出资分配",
+                        "moduleName": "出资分配明细",
+                        "moduleKey": "fund-cashflow-detail",
+                        "moduleGroup": "fund",
+                        "desc": "“投资主体”、“出资分配概况”、“出资分配明细”需放置于同一个标签下！",
+                        "btns": [
+                            { "btnName": "新建", "btnKey": "add" },
+                            { "btnName": "编辑", "btnKey": "edit" }
+                        ]
+                    },{
+                        "tabName": "银行账户",
+                        "moduleName": "账户管理",
+                        "moduleKey": "platform-account",
+                        "moduleGroup": "platform",
+                        "desc": "",
+                        "btns": []
+                    }
+                ]
+            },{
+                "tabName": "",
+                "moduleName": "个人设置",
+                "moduleKey": "setting-user",
+                "moduleGroup": "setting-user",
+                "desc": "",
+                "btns": []
+            },{
+                "tabName": "",
+                "moduleName": "字典管理",
+                "moduleKey": "sys-dict",
+                "moduleGroup": "sys-dict",
+                "desc": "",
+                "btns": [],
+                "subModules": [
+                    {
+                        "tabName": "基础字典",
+                        "moduleName": "基础字典管理",
+                        "moduleKey": "dict-base",
+                        "moduleGroup": "sys-dict",
+                        "desc": "",
+                        "btns": []
+                    },{
+                        "tabName": "远程字典",
+                        "moduleName": "远程字典管理",
+                        "moduleKey": "dict-remote",
+                        "moduleGroup": "sys-dict",
+                        "desc": "",
+                        "btns": []
+                    }
+                ]
+            }
+        ]
+    }
+]

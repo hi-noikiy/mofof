@@ -1,0 +1,264 @@
+//  href和moduleGroup是一一对应并固定的，一旦确定菜单对应的href，则相关配置只能从同moduleGroup的模块中选择
+//  API 建议：左侧菜单可返回/role-menu?user="", 包含“role”和“menus”；
+[ 
+  {
+    "role": { "value": "超级管理员" },   //mofof是用户名，不是角色类型，所以这里改成中文。
+    "menus": [
+      {
+        "name": "个人设置",
+        "icon": "fa fa-user",
+        "href": "/person",
+        "moduleGroup": "setting-user",
+        "isActive": true,
+        "subMenus": []
+      },{
+        "name": "产品设置",
+        "icon": "fa fa-cog",
+        "href": "/setting-mofof",
+        "moduleGroup": "setting-mofof",
+        "isActive": false,
+        "subMenus": []
+      },{
+        "name": "角色管理",
+        "icon": "fa fa-key",
+        "href": "/role-tree-view",
+        "moduleGroup": "sys-role",
+        "isActive": false,
+        "subMenus": []
+      },{
+        "name": "字典管理",
+        "icon": "fa fa-copy",
+        "href": "/dict-tree-view",
+        "moduleGroup": "sys-dict",
+        "isActive": false,
+        "subMenus": []
+      }
+    ]
+  },{
+    "role": { "value": "管理员" },
+    "menus": [
+      {
+        "name": "个人设置",
+        "icon": "fa fa-user",
+        "href": "/person",
+        "moduleGroup": "setting-user",
+        "isActive": true,
+        "subMenus": []
+      },{
+        "name": "系统设置",
+        "icon": "fa fa-cogs",
+        "href": "",
+        "moduleGroup": "setting-sys",
+        "isActive": false,
+        "subMenus": []
+      },{
+        "name": "部门管理",
+        "icon": "fa fa-sitemap",
+        "href": "/department-tree-view",
+        "moduleGroup": "sys-dept",
+        "isActive": false,
+        "subMenus": []
+      },{
+        "name": "用户管理",
+        "icon": "fa fa-users",
+        "href": "/user-info-list",
+        "moduleGroup": "sys-users",
+        "isActive": false,
+        "subMenus": []
+      },{
+        "name": "字典管理",
+        "icon": "fa fa-list-ul",
+        "href": "/dict-tree-view",
+        "moduleGroup": "sys-dict",
+        "isActive": false,
+        "subMenus": []
+      }
+    ]
+  },{
+    "role": { "value": "财务负责人" },
+    "menus": [
+      {
+        "name": "工作台",
+        "icon": "fa fa-home",
+        "href": "/",
+        "moduleGroup": "workbench",
+        "isActive": true,
+        "subMenus": []
+      },{
+        "name": "日常管理",
+        "icon": "fa fa-list-alt",
+        "href": "",
+        "moduleGroup": "",
+        "isActive": false,
+        "subMenus": [
+          {
+            "name": "我的日程",
+            "icon": "fa fa-calender",
+            "href": "my_schedule",
+            "moduleGroup": "calender",
+            "isActive": false,
+            "subMenus": []
+          },{
+            "name": "我的邮件",
+            "icon": "fa fa-envelope-o",
+            "href": "#",
+            "moduleGroup": "",
+            "isActive": false,
+            "subMenus": []
+          },{
+            "name": "我的文件",
+            "icon": "fa fa-file-o",
+            "href": "/file",
+            "moduleGroup": "",
+            "isActive": false,
+            "subMenus": []
+          }
+        ]
+      },{
+        "name": "投资平台",
+        "icon": "fa fa-flag",
+        "href": "/platform-list",
+        "moduleGroup": "platform",
+        "isActive": false,
+        "subMenus": []
+      },{
+        "name": "子基金",
+        "icon": "fa fa-list-ol",
+        "href": "/fund-list",
+        "moduleGroup": "fund",
+        "isActive": false,
+        "subMenus": []
+      },{
+        "name": "系统设置",
+        "icon": "fa fa-cogs",
+        "href": "",
+        "moduleGroup": "",
+        "isActive": false,
+        "subMenus": [
+          {
+            "name": "个人设置",
+            "icon": "fa fa-user",
+            "href": "/person",
+            "moduleGroup": "setting-user",
+            "isActive": true,
+            "subMenus": []
+          },{
+            "name": "字典管理",
+            "icon": "fa fa-list-ul",
+            "href": "/dict-tree-view",
+            "moduleGroup": "sys-dict",
+            "isActive": false,
+            "subMenus": []
+          }
+        ]
+      }
+    ]
+  },{
+    "role": { "value": "投资负责人" },
+    "menus": [
+      {
+        "name": "工作台",
+        "icon": "fa fa-home",
+        "href": "/",
+        "moduleGroup": "workbench",
+        "isActive": true,
+        "subMenus": []
+      },{
+        "name": "日常管理",
+        "icon": "fa fa-list-alt",
+        "href": "",
+        "moduleGroup": "",
+        "isActive": false,
+        "subMenus": [
+          {
+            "name": "我的日程",
+            "icon": "fa fa-calender",
+            "href": "my_schedule",
+            "moduleGroup": "",
+            "isActive": false,
+            "subMenus": []
+          },{
+            "name": "我的邮件",
+            "icon": "fa fa-envelope-o",
+            "href": "#",
+            "moduleGroup": "",
+            "isActive": false,
+            "subMenus": []
+          },{
+            "name": "我的文件",
+            "icon": "fa fa-file-o",
+            "href": "/file",
+            "moduleGroup": "",
+            "isActive": false,
+            "subMenus": []
+          }
+        ]
+      },{
+        "name": "投资平台",
+        "icon": "fa fa-flag",
+        "href": "/platform-list",
+        "moduleGroup": "platform",
+        "isActive": false,
+        "subMenus": []
+      },{
+        "name": "管理机构",
+        "icon": "fa fa-tripadvisor",
+        "href": "/administrator-list",
+        "moduleGroup": "admin",
+        "isActive": false,
+        "subMenus": []
+      },{
+        "name": "子基金",
+        "icon": "fa fa-list-ol",
+        "href": "/fund-list",
+        "moduleGroup": "fund",
+        "isActive": false,
+        "subMenus": []
+      },{
+        "name": "项目",
+        "icon": "fa fa-cubes",
+        "href": "/project-list",
+        "moduleGroup": "project",
+        "isActive": false,
+        "subMenus": []
+      },{
+        "name": "团队",
+        "icon": "fa fa-users",
+        "href": "/team-list",
+        "moduleGroup": "team",
+        "isActive": false,
+        "subMenus": []
+      },{
+        "name": "关联机构",
+        "icon": "fa fa-link",
+        "href": "/affiliate-list",
+        "moduleGroup": "affiliate",
+        "isActive": false,
+        "subMenus": []
+      },{
+        "name": "系统设置",
+        "icon": "fa fa-cogs",
+        "href": "",
+        "moduleGroup": "",
+        "isActive": false,
+        "subMenus": [
+          {
+            "name": "个人设置",
+            "icon": "fa fa-user",
+            "href": "/person",
+            "moduleGroup": "",
+            "isActive": true,
+            "subMenus": []
+          },{
+            "name": "字典管理",
+            "icon": "fa fa-list-ul",
+            "href": "/dict-tree-view",
+            "moduleGroup": "dict",
+            "isActive": false,
+            "subMenus": []
+          }
+        ]
+      }
+    ]
+  }
+]
